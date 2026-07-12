@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		318154702EED77EB00B7924B /* apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3181546F2EED77EB00B7924B /* apple.swift */; };
+		B71387432DF6C664009C8086 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71387422DF6C664009C8086 /* AIView.swift */; };
+		B71387452DF6C767009C8086 /* BreatheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71387442DF6C767009C8086 /* BreatheView.swift */; };
+		B7234B062DD5F2A100F9024F /* Core_CareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7234B052DD5F2A100F9024F /* Core_CareApp.swift */; };
+		B7234B082DD5F2A100F9024F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7234B072DD5F2A100F9024F /* ContentView.swift */; };
+		B7234B0A2DD5F2A400F9024F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7234B092DD5F2A400F9024F /* Assets.xcassets */; };
+		B7234B0D2DD5F2A400F9024F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7234B0C2DD5F2A400F9024F /* Preview Assets.xcassets */; };
+		B724A9D32E71913C00900853 /* breathing_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B724A9D22E71913C00900853 /* breathing_music.mp3 */; };
+		B747E8752E56E95C008210E7 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747E8742E56E95C008210E7 /* UserDetailsView.swift */; };
+		B748769D2E84F46F002869E1 /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B748769C2E84F46F002869E1 /* ServiceAPI.swift */; };
+		B76D44EE2E18F6B500D0210E /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ECF94B2DE423E70031CDFD /* ForgotPasswordView.swift */; };
+		B78290112E73D014004BC316 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78290102E73D014004BC316 /* AppRootView.swift */; };
+		B78E45EA2E5445F20028CEB2 /* BloodSugarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78E45E92E5445F20028CEB2 /* BloodSugarView.swift */; };
+		B79A69C32DEAF46D0020595B /* HRCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A69C22DEAF46D0020595B /* HRCheckView.swift */; };
+		B79A69C92DEAFAB80020595B /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A69C82DEAFAB80020595B /* HistoryView.swift */; };
+		B7C4D4002DE46759001465C9 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C4D3FF2DE46759001465C9 /* LogoutView.swift */; };
+		B7E407C92DEAB44700B41309 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E407C82DEAB44700B41309 /* WeightView.swift */; };
+		B7E407CB2DEAB4F400B41309 /* BPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E407CA2DEAB4F400B41309 /* BPView.swift */; };
+		B7ECF9482DE420BF0031CDFD /* RegisterationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ECF9472DE420BF0031CDFD /* RegisterationView.swift */; };
+		B7ECF94A2DE420D80031CDFD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ECF9492DE420D80031CDFD /* LoginView.swift */; };
+		B7ECF94E2DE4240B0031CDFD /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ECF94D2DE4240B0031CDFD /* HomePageView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3181546F2EED77EB00B7924B /* apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apple.swift; sourceTree = "<group>"; };
+		B71387422DF6C664009C8086 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
+		B71387442DF6C767009C8086 /* BreatheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheView.swift; sourceTree = "<group>"; };
+		B7234B022DD5F2A100F9024F /* heart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7234B052DD5F2A100F9024F /* Core_CareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core_CareApp.swift; sourceTree = "<group>"; };
+		B7234B072DD5F2A100F9024F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B7234B092DD5F2A400F9024F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Core Care/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		B7234B0C2DD5F2A400F9024F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B724A9CF2E71469100900853 /* heart-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "heart-Info.plist"; sourceTree = "<group>"; };
+		B724A9D12E71474500900853 /* heart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = heart.entitlements; sourceTree = "<group>"; };
+		B724A9D22E71913C00900853 /* breathing_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = breathing_music.mp3; sourceTree = "<group>"; };
+		B747E8742E56E95C008210E7 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
+		B748769C2E84F46F002869E1 /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
+		B78290102E73D014004BC316 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		B78E45E92E5445F20028CEB2 /* BloodSugarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarView.swift; sourceTree = "<group>"; };
+		B79A69C22DEAF46D0020595B /* HRCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRCheckView.swift; sourceTree = "<group>"; };
+		B79A69C82DEAFAB80020595B /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		B7C4D3FF2DE46759001465C9 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
+		B7E407C82DEAB44700B41309 /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
+		B7E407CA2DEAB4F400B41309 /* BPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPView.swift; sourceTree = "<group>"; };
+		B7ECF9472DE420BF0031CDFD /* RegisterationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationView.swift; sourceTree = "<group>"; };
+		B7ECF9492DE420D80031CDFD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B7ECF94B2DE423E70031CDFD /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		B7ECF94D2DE4240B0031CDFD /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B7234AFF2DD5F2A100F9024F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B7234AF92DD5F2A100F9024F = {
+			isa = PBXGroup;
+			children = (
+				B724A9D12E71474500900853 /* heart.entitlements */,
+				B724A9CF2E71469100900853 /* heart-Info.plist */,
+				B7234B042DD5F2A100F9024F /* Core Care */,
+				B7234B032DD5F2A100F9024F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B7234B032DD5F2A100F9024F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B7234B022DD5F2A100F9024F /* heart.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7234B042DD5F2A100F9024F /* Core Care */ = {
+			isa = PBXGroup;
+			children = (
+				B748769C2E84F46F002869E1 /* ServiceAPI.swift */,
+				B7234B052DD5F2A100F9024F /* Core_CareApp.swift */,
+				B78290102E73D014004BC316 /* AppRootView.swift */,
+				B7234B072DD5F2A100F9024F /* ContentView.swift */,
+				B7ECF9472DE420BF0031CDFD /* RegisterationView.swift */,
+				B7ECF9492DE420D80031CDFD /* LoginView.swift */,
+				3181546F2EED77EB00B7924B /* apple.swift */,
+				B7ECF94B2DE423E70031CDFD /* ForgotPasswordView.swift */,
+				B7ECF94D2DE4240B0031CDFD /* HomePageView.swift */,
+				B79A69C22DEAF46D0020595B /* HRCheckView.swift */,
+				B7E407CA2DEAB4F400B41309 /* BPView.swift */,
+				B7E407C82DEAB44700B41309 /* WeightView.swift */,
+				B78E45E92E5445F20028CEB2 /* BloodSugarView.swift */,
+				B71387422DF6C664009C8086 /* AIView.swift */,
+				B71387442DF6C767009C8086 /* BreatheView.swift */,
+				B79A69C82DEAFAB80020595B /* HistoryView.swift */,
+				B747E8742E56E95C008210E7 /* UserDetailsView.swift */,
+				B7C4D3FF2DE46759001465C9 /* LogoutView.swift */,
+				B724A9D22E71913C00900853 /* breathing_music.mp3 */,
+				B7234B092DD5F2A400F9024F /* Assets.xcassets */,
+				B7234B0B2DD5F2A400F9024F /* Preview Content */,
+			);
+			path = "Core Care";
+			sourceTree = "<group>";
+		};
+		B7234B0B2DD5F2A400F9024F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B7234B0C2DD5F2A400F9024F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B7234B012DD5F2A100F9024F /* heart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7234B102DD5F2A400F9024F /* Build configuration list for PBXNativeTarget "heart" */;
+			buildPhases = (
+				B7234AFE2DD5F2A100F9024F /* Sources */,
+				B7234AFF2DD5F2A100F9024F /* Frameworks */,
+				B7234B002DD5F2A100F9024F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = heart;
+			productName = "Core Care";
+			productReference = B7234B022DD5F2A100F9024F /* heart.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B7234AFA2DD5F2A100F9024F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					B7234B012DD5F2A100F9024F = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = B7234AFD2DD5F2A100F9024F /* Build configuration list for PBXProject "Core Care" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B7234AF92DD5F2A100F9024F;
+			productRefGroup = B7234B032DD5F2A100F9024F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7234B012DD5F2A100F9024F /* heart */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7234B002DD5F2A100F9024F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7234B0D2DD5F2A400F9024F /* Preview Assets.xcassets in Resources */,
+				B7234B0A2DD5F2A400F9024F /* Assets.xcassets in Resources */,
+				B724A9D32E71913C00900853 /* breathing_music.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7234AFE2DD5F2A100F9024F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				318154702EED77EB00B7924B /* apple.swift in Sources */,
+				B747E8752E56E95C008210E7 /* UserDetailsView.swift in Sources */,
+				B78E45EA2E5445F20028CEB2 /* BloodSugarView.swift in Sources */,
+				B7C4D4002DE46759001465C9 /* LogoutView.swift in Sources */,
+				B7E407CB2DEAB4F400B41309 /* BPView.swift in Sources */,
+				B76D44EE2E18F6B500D0210E /* ForgotPasswordView.swift in Sources */,
+				B7ECF9482DE420BF0031CDFD /* RegisterationView.swift in Sources */,
+				B7234B082DD5F2A100F9024F /* ContentView.swift in Sources */,
+				B7ECF94A2DE420D80031CDFD /* LoginView.swift in Sources */,
+				B7E407C92DEAB44700B41309 /* WeightView.swift in Sources */,
+				B79A69C92DEAFAB80020595B /* HistoryView.swift in Sources */,
+				B71387452DF6C767009C8086 /* BreatheView.swift in Sources */,
+				B79A69C32DEAF46D0020595B /* HRCheckView.swift in Sources */,
+				B748769D2E84F46F002869E1 /* ServiceAPI.swift in Sources */,
+				B71387432DF6C664009C8086 /* AIView.swift in Sources */,
+				B7ECF94E2DE4240B0031CDFD /* HomePageView.swift in Sources */,
+				B78290112E73D014004BC316 /* AppRootView.swift in Sources */,
+				B7234B062DD5F2A100F9024F /* Core_CareApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B7234B0E2DD5F2A400F9024F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B7234B0F2DD5F2A400F9024F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7234B112DD5F2A400F9024F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = heart.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Core Care/Preview Content\"";
+				DEVELOPMENT_TEAM = J93L8HVLVU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "heart-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Core Care";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app requires Bluetooth access for device connectivity.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "This app requires Bluetooth access for device connectivity.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera and flashlight to measure your heart rate by detecting blood flow changes.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app analyzes health data for risk assessment";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app may write health data for comprehensive tracking.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app needs to access your local network to connect to the backend server for user authentication and data synchronization.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses microphone for health monitoring";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saveetha.corecare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B7234B122DD5F2A400F9024F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = heart.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Core Care/Preview Content\"";
+				DEVELOPMENT_TEAM = J93L8HVLVU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "heart-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Core Care";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app requires Bluetooth access for device connectivity.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "This app requires Bluetooth access for device connectivity.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera and flashlight to measure your heart rate by detecting blood flow changes.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app analyzes health data for risk assessment";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app may write health data for comprehensive tracking.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app needs to access your local network to connect to the backend server for user authentication and data synchronization.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses microphone for health monitoring";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saveetha.corecare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B7234AFD2DD5F2A100F9024F /* Build configuration list for PBXProject "Core Care" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7234B0E2DD5F2A400F9024F /* Debug */,
+				B7234B0F2DD5F2A400F9024F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7234B102DD5F2A400F9024F /* Build configuration list for PBXNativeTarget "heart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7234B112DD5F2A400F9024F /* Debug */,
+				B7234B122DD5F2A400F9024F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B7234AFA2DD5F2A100F9024F /* Project object */;
+}
