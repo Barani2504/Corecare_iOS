@@ -1,0 +1,24 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/AppRootView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Welcome back, %@!",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "Loading...",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 466
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -42,6 +42,10 @@ struct BPView: View {
                 }
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .animation(.spring(response: 0.6, dampingFraction: 0.8), value: toHome)
         .onAppear {
             validateUserAndFetch()
@@ -84,20 +88,12 @@ struct BPView: View {
     private func mainContent(geometry: GeometryProxy) -> some View {
         let screenWidth = geometry.size.width
         let screenHeight = geometry.size.height
-        let safeTop = geometry.safeAreaInsets.top
-        let safeBottom = geometry.safeAreaInsets.bottom
+        let safeTop = max(geometry.safeAreaInsets.top, 44)
+        let safeBottom = max(geometry.safeAreaInsets.bottom, 20)
         
         return ZStack {
-            // Modern gradient background
-            LinearGradient(
-                colors: [
-                    Color(red: 0.95, green: 0.97, blue: 1.0),
-                    Color(red: 0.9, green: 0.94, blue: 0.98),
-                    Color(red: 0.85, green: 0.91, blue: 0.96)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            // Adaptive background
+            Color.appBackground2
             .ignoresSafeArea()
             
             // Subtle animated background elements
@@ -127,23 +123,25 @@ struct BPView: View {
                     )
             }
             
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: screenHeight * 0.025) {
-                    
-                    // Header Section
-                    headerSection(screenWidth: screenWidth, safeTop: safeTop)
-                    
-                    // BP Metrics Cards
-                    bpMetricsSection(screenWidth: screenWidth)
-                    
-                    // Dynamic Health Insights
-                    healthInsightsSection(screenWidth: screenWidth)
-                    
-                    // Bottom spacing for safe area
-                    Spacer()
-                        .frame(height: safeBottom + 20)
+            VStack(spacing: 0) {
+                // Header Section pinned at top
+                headerSection(screenWidth: screenWidth, safeTop: safeTop)
+                
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: screenHeight * 0.025) {
+                        // BP Metrics Cards
+                        bpMetricsSection(screenWidth: screenWidth)
+                        
+                        // Dynamic Health Insights
+                        healthInsightsSection(screenWidth: screenWidth)
+                        
+                        // Bottom spacing for safe area
+                        Spacer()
+                            .frame(height: safeBottom + 20)
+                    }
+                    .padding(.horizontal, screenWidth * 0.05)
+                    .padding(.top, 10)
                 }
-                .padding(.horizontal, screenWidth * 0.05)
             }
             
             // Enhanced loading overlay
@@ -178,7 +176,7 @@ struct BPView: View {
             // Title
             VStack(spacing: 4) {
                 Text("Blood Pressure")
-                    .font(.system(size: screenWidth * 0.06, weight: .bold, design: .rounded))
+                    .font(.system(size: min(screenWidth * 0.06, 24), weight: .bold, design: .rounded))
                     .foregroundStyle(
                         LinearGradient(
                             colors: [
@@ -219,8 +217,9 @@ struct BPView: View {
                 }
             }
         }
-        .padding(.top, safeTop + 10)
-        .padding(.bottom, 10)
+        .padding(.horizontal, screenWidth * 0.05)
+        .padding(.top, safeTop + 8)
+        .padding(.bottom, 12)
     }
     
     // MARK: - BP Metrics Section

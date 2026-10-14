@@ -28,6 +28,7 @@
 		B7ECF9482DE420BF0031CDFD /* RegisterationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ECF9472DE420BF0031CDFD /* RegisterationView.swift */; };
 		B7ECF94A2DE420D80031CDFD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ECF9492DE420D80031CDFD /* LoginView.swift */; };
 		B7ECF94E2DE4240B0031CDFD /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ECF94D2DE4240B0031CDFD /* HomePageView.swift */; };
+		B7DDA1022E85F00100000001 /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DDA1012E85F00100000001 /* ThemeColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		B7ECF9492DE420D80031CDFD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B7ECF94B2DE423E70031CDFD /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		B7ECF94D2DE4240B0031CDFD /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		B7DDA1012E85F00100000001 /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				3181546F2EED77EB00B7924B /* apple.swift */,
 				B7ECF94B2DE423E70031CDFD /* ForgotPasswordView.swift */,
 				B7ECF94D2DE4240B0031CDFD /* HomePageView.swift */,
+				B7DDA1012E85F00100000001 /* ThemeColors.swift */,
 				B79A69C22DEAF46D0020595B /* HRCheckView.swift */,
 				B7E407CA2DEAB4F400B41309 /* BPView.swift */,
 				B7E407C82DEAB44700B41309 /* WeightView.swift */,
@@ -209,6 +212,7 @@
 				B748769D2E84F46F002869E1 /* ServiceAPI.swift in Sources */,
 				B71387432DF6C664009C8086 /* AIView.swift in Sources */,
 				B7ECF94E2DE4240B0031CDFD /* HomePageView.swift in Sources */,
+				B7DDA1022E85F00100000001 /* ThemeColors.swift in Sources */,
 				B78290112E73D014004BC316 /* AppRootView.swift in Sources */,
 				B7234B062DD5F2A100F9024F /* Core_CareApp.swift in Sources */,
 			);
@@ -386,6 +390,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = heart.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Core Care/Preview Content\"";
@@ -414,6 +419,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.saveetha.corecare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

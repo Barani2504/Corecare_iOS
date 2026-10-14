@@ -1,0 +1,176 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/HomePageView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Error",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 272
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 273
+        }
+      },
+      {
+        "comment": "",
+        "key": "Welcome back,",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 422
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your Health",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 475
+        }
+      },
+      {
+        "comment": "",
+        "key": "Dashboard",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 478
+        }
+      },
+      {
+        "comment": "",
+        "key": "Track, monitor, and improve your wellbeing",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 481
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quick Check",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 502
+        }
+      },
+      {
+        "comment": "",
+        "key": "View All",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 506
+        }
+      },
+      {
+        "comment": "",
+        "key": "Measure Heart Rate",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 531
+        }
+      },
+      {
+        "comment": "",
+        "key": "Get instant heart rate reading",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 534
+        }
+      },
+      {
+        "comment": "",
+        "key": "Health Metrics",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 556
+        }
+      },
+      {
+        "comment": "",
+        "key": "Apple Health",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 701
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 720
+        }
+      },
+      {
+        "comment": "",
+        "key": "steps today",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 723
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sleep: %@ hours",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 732
+        }
+      },
+      {
+        "comment": "",
+        "key": "Synced",
+        "location": {
+          "startingColumn": 65,
+          "startingLine": 747
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Access",
+        "location": {
+          "startingColumn": 76,
+          "startingLine": 747
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI Assistant",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 766
+        }
+      },
+      {
+        "comment": "",
+        "key": "Core Care Assistant",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 788
+        }
+      },
+      {
+        "comment": "",
+        "key": "Get personalized health insights",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 791
+        }
+      },
+      {
+        "comment": "",
+        "key": "Loading...",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1306
+        }
+      }
+    ]
+  },
+  "version": 1
+}

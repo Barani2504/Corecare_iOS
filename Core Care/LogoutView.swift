@@ -53,6 +53,10 @@ struct LogoutView: View {
                 EnhancedLoadingOverlay()
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .animation(.spring(response: 0.8, dampingFraction: 0.8), value: route)
         .onAppear {
             // Verify user is logged in
@@ -84,7 +88,7 @@ struct LogoutView: View {
                 // Main content
                 ScrollView {
                     VStack(spacing: 32) {
-                        Spacer().frame(height: max(60, geometry.safeAreaInsets.top + 20))
+                        Spacer().frame(height: max(geometry.safeAreaInsets.top, 44) + 16)
 
                         // Enhanced header section
                         enhancedHeaderSection
@@ -120,28 +124,25 @@ struct LogoutView: View {
                             .scaleEffect(animateElements ? 1.0 : 0.9)
                             .animation(.spring(response: 0.8, dampingFraction: 0.7).delay(1.0), value: animateElements)
 
-                        Spacer().frame(height: max(40, geometry.safeAreaInsets.bottom + 20))
+                        Spacer().frame(height: max(geometry.safeAreaInsets.bottom, 20) + 20)
                     }
                     .padding(.horizontal, 24)
                 }
             }
+            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
     }
     
     // MARK: - Enhanced UI Components
     
     private var enhancedMedicalBackground: some View {
         ZStack {
-            // Base gradient
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.96, green: 0.97, blue: 1.0),
-                    Color(red: 0.94, green: 0.96, blue: 0.99),
-                    Color(red: 0.92, green: 0.95, blue: 0.98)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            // Adaptive background
+            Color.appBackground2
             
             // Medical pattern overlay
             Canvas { context, size in
@@ -435,14 +436,14 @@ struct LogoutView: View {
                         .fill(
                             LinearGradient(
                                 gradient: Gradient(colors: [
-                                    Color.black,
-                                    Color.black.opacity(0.8)
+                                    Color.appAccent,
+                                    Color.appAccent.opacity(0.85)
                                 ]),
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             )
                         )
-                        .shadow(color: Color.black.opacity(0.3), radius: 12, x: 0, y: 6)
+                        .shadow(color: Color.appAccent.opacity(0.3), radius: 12, x: 0, y: 6)
                 )
             }
             .disabled(isLoggingOut)

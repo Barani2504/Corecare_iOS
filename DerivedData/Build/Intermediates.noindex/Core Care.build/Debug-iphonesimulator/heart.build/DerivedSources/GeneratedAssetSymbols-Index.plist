@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>colors</key>
+	<array>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameBluefont</string>
+			<key>relativePath</key>
+			<string>./bluefont.colorset</string>
+			<key>swiftSymbol</key>
+			<string>bluefont</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameCoreblue</string>
+			<key>relativePath</key>
+			<string>./coreblue.colorset</string>
+			<key>swiftSymbol</key>
+			<string>coreblue</string>
+		</dict>
+	</array>
+	<key>images</key>
+	<array>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar1</string>
+			<key>relativePath</key>
+			<string>./avatar1.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar1</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar10</string>
+			<key>relativePath</key>
+			<string>./avatar10.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar10</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar11</string>
+			<key>relativePath</key>
+			<string>./avatar11.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar11</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar12</string>
+			<key>relativePath</key>
+			<string>./avatar12.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar12</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar2</string>
+			<key>relativePath</key>
+			<string>./avatar2.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar2</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar3</string>
+			<key>relativePath</key>
+			<string>./avatar3.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar3</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar4</string>
+			<key>relativePath</key>
+			<string>./avatar4.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar4</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar5</string>
+			<key>relativePath</key>
+			<string>./avatar5.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar5</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar6</string>
+			<key>relativePath</key>
+			<string>./avatar6.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar6</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar7</string>
+			<key>relativePath</key>
+			<string>./avatar7.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar7</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar8</string>
+			<key>relativePath</key>
+			<string>./avatar8.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar8</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameAvatar9</string>
+			<key>relativePath</key>
+			<string>./avatar9.imageset</string>
+			<key>swiftSymbol</key>
+			<string>avatar9</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameBase</string>
+			<key>relativePath</key>
+			<string>./base.imageset</string>
+			<key>swiftSymbol</key>
+			<string>base</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/sail/Desktop/Corecare_iOS/Core Care/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCorecarelogo</string>
+			<key>relativePath</key>
+			<string>./corecarelogo.imageset</string>
+			<key>swiftSymbol</key>
+			<string>corecarelogo</string>
+		</dict>
+	</array>
+	<key>symbols</key>
+	<array/>
+</dict>
+</plist>

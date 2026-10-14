@@ -1,0 +1,23 @@
+{
+  "/Users/sail/Desktop/Corecare_iOS/Core Care/ContentView.swift" : {
+    "const-values" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/ContentView.dia",
+    "object" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/ContentView.swiftdeps"
+  },
+  "/Users/sail/Desktop/Corecare_iOS/Core Care/LoginView.swift" : {
+    "const-values" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/LoginView.swiftconstvalues",
+    "dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/LoginView.d",
+    "diagnostics" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/LoginView.dia",
+    "object" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/LoginView.o",
+    "swift-dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/LoginView.swiftdeps"
+  },
+  "/Users/sail/Desktop/Corecare_iOS/Core Care/RegisterationView.swift" : {
+    "const-values" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/RegisterationView.swiftconstvalues",
+    "dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/RegisterationView.d",
+    "diagnostics" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/RegisterationView.dia",
+    "object" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/RegisterationView.o",
+    "swift-dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/RegisterationView.swiftdeps"
+  }
+}

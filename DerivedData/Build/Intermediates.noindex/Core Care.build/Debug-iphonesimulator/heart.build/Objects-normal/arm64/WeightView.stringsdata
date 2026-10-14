@@ -1,0 +1,264 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/WeightView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Success",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "Error",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 74
+        }
+      },
+      {
+        "comment": "",
+        "key": "Continue",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 70
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your health data has been saved successfully!",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 75
+        }
+      },
+      {
+        "comment": "",
+        "key": "Health Metrics",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 251
+        }
+      },
+      {
+        "comment": "",
+        "key": "Data saved",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 268
+        }
+      },
+      {
+        "comment": "",
+        "key": "Weight & BMI",
+        "location": {
+          "startingColumn": 53,
+          "startingLine": 268
+        }
+      },
+      {
+        "comment": "",
+        "key": "Weight",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 344
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter your current weight",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 348
+        }
+      },
+      {
+        "comment": "",
+        "key": "kg",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 381
+        }
+      },
+      {
+        "comment": "",
+        "key": "0.0",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 373
+        }
+      },
+      {
+        "comment": "",
+        "key": "Height",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 424
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter your current height",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 428
+        }
+      },
+      {
+        "comment": "",
+        "key": "cm",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 461
+        }
+      },
+      {
+        "comment": "",
+        "key": "0.0",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 453
+        }
+      },
+      {
+        "comment": "",
+        "key": "Data Saved Successfully!",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 534
+        }
+      },
+      {
+        "comment": "",
+        "key": "Calculate BMI & Save",
+        "location": {
+          "startingColumn": 67,
+          "startingLine": 534
+        }
+      },
+      {
+        "comment": "",
+        "key": "Health Insights",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 578
+        }
+      },
+      {
+        "comment": "",
+        "key": "Personalized recommendations",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 582
+        }
+      },
+      {
+        "comment": "",
+        "key": "BMI ANALYSIS",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 696
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 701
+        }
+      },
+      {
+        "comment": "",
+        "key": "BMI",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 747
+        }
+      },
+      {
+        "comment": "",
+        "key": "Calculating BMI...",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1122
+        }
+      },
+      {
+        "comment": "",
+        "key": "Medical References",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1267
+        }
+      },
+      {
+        "comment": "",
+        "key": "Medical Sources",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1195
+        }
+      },
+      {
+        "comment": "",
+        "key": "All health information and recommendations in this app are based on the following authoritative medical sources:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1199
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld.",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1210
+        }
+      },
+      {
+        "comment": "",
+        "key": "View Source",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 1230
+        }
+      },
+      {
+        "comment": "",
+        "key": "Important Disclaimer",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1250
+        }
+      },
+      {
+        "comment": "",
+        "key": "This app provides general health information based on established medical guidelines. It is not intended to replace professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1253
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 1271
+        }
+      }
+    ]
+  },
+  "version": 1
+}

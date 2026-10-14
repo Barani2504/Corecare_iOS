@@ -79,15 +79,15 @@ struct UserDetailsView: View {
     // Available avatars (1-12)
     private let availableAvatars = (1...12).map { "avatar\($0)" }
     
-    // Colors matching HomePageView
-    private let primaryColor = Color(red: 0.11, green: 0.13, blue: 0.19)
-    private let secondaryColor = Color(red: 0.96, green: 0.96, blue: 0.98)
-    private let accentColor = Color(red: 0.33, green: 0.42, blue: 0.95)
+    // MARK: - Adaptive colours
+    private let primaryColor   = Color.textPrimary
+    private let secondaryColor = Color.appBackground2
+    private let accentColor    = Color.appAccent
 
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                secondaryColor
+                Color.appBackground2
                     .ignoresSafeArea()
 
                 if showLogoutView {
@@ -96,10 +96,6 @@ struct UserDetailsView: View {
                         .transition(.opacity)
                 } else {
                     contentView(geo: geo)
-                    
-                    if currentPage == .userDetails {
-                        bottomNavigation(geo: geo)
-                    }
                 }
 
                 if isLoading || isDeleting {
@@ -132,6 +128,10 @@ struct UserDetailsView: View {
                 }
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             validateUserSession()
             guard !hasLoadedOnce && currentUserId != 0 else { return }
@@ -261,7 +261,7 @@ struct UserDetailsView: View {
         ScrollView {
             VStack(spacing: 0) {
                 headerSection(geo: geo)
-                    .padding(.top, geo.safeAreaInsets.top > 0 ? geo.safeAreaInsets.top - 10 : 20)
+                    .padding(.top, max(geo.safeAreaInsets.top, 44) + 8)
                     .padding(.bottom, 20)
 
                 if initialEditMode && name.isEmpty {
@@ -280,7 +280,7 @@ struct UserDetailsView: View {
 
                 actionButtons
                     .padding(.horizontal, 20)
-                    .padding(.bottom, geo.size.height * 0.2)
+                    .padding(.bottom, 110 + geo.safeAreaInsets.bottom)
             }
         }
         .scrollIndicators(.hidden)
@@ -494,7 +494,7 @@ struct UserDetailsView: View {
                                             Image(systemName: "checkmark.circle.fill")
                                                 .font(.system(size: 16))
                                                 .foregroundColor(accentColor)
-                                                .background(Circle().fill(Color.white))
+                                                .background(Circle().fill(Color.appBackground))
                                         }
                                         Spacer()
                                     }
@@ -506,9 +506,9 @@ struct UserDetailsView: View {
                 }
             }
             .padding(24)
-            .background(Color.white)
+            .background(Color.cardBackground)
             .cornerRadius(20)
-            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 10)
+            .shadow(color: Color.cardShadow, radius: 20, x: 0, y: 10)
             .padding(.horizontal, 40)
         }
     }
@@ -526,9 +526,9 @@ struct UserDetailsView: View {
             }
         }
         .padding(16)
-        .background(Color.white)
+        .background(Color.cardBackground)
         .cornerRadius(12)
-        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+        .shadow(color: Color.cardShadow, radius: 5, x: 0, y: 2)
     }
 
     // MARK: - Form Section
@@ -569,9 +569,9 @@ struct UserDetailsView: View {
             }
         }
         .padding(20)
-        .background(Color.white)
+        .background(Color.cardBackground)
         .cornerRadius(12)
-        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+        .shadow(color: Color.cardShadow, radius: 5, x: 0, y: 2)
     }
 
     // MARK: - Action Buttons with Delete Account
@@ -735,7 +735,7 @@ struct UserDetailsView: View {
                     
                     TextField("Type DELETE here", text: $deleteConfirmationText)
                         .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.textPrimary)
                         .padding(12)
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(10)
@@ -776,9 +776,9 @@ struct UserDetailsView: View {
                 }
             }
             .padding(24)
-            .background(Color.white)
+            .background(Color.cardBackground)
             .cornerRadius(20)
-            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 10)
+            .shadow(color: Color.cardShadow, radius: 20, x: 0, y: 10)
             .padding(.horizontal, 40)
         }
     }
@@ -827,7 +827,7 @@ struct UserDetailsView: View {
                     .foregroundColor(accentColor)
                     .frame(maxWidth: .infinity)
                     .padding(14)
-                    .background(Color.white)
+                    .background(Color.cardBackground)
                     .cornerRadius(12)
                     .overlay(RoundedRectangle(cornerRadius: 12).stroke(accentColor, lineWidth: 2))
                     
@@ -845,72 +845,81 @@ struct UserDetailsView: View {
                 }
             }
             .padding(24)
-            .background(Color.white)
+            .background(Color.cardBackground)
             .cornerRadius(20)
-            .shadow(color: Color.black.opacity(0.3), radius: 30, x: 0, y: 15)
+            .shadow(color: Color.cardShadow, radius: 30, x: 0, y: 15)
             .padding(.horizontal, 40)
         }
     }
 
-    // MARK: - Bottom Navigation
+    // MARK: - Native iOS Bottom Navigation Tab Bar
     private func bottomNavigation(geo: GeometryProxy) -> some View {
-        VStack {
+        VStack(spacing: 0) {
             Spacer()
-            HStack(spacing: 0) {
-                Button {
-                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                        currentPage = .home
-                    }
-                } label: {
-                    EnhancedBottomNavItem(
-                        systemName: "house.fill",
-                        label: "Home",
-                        isActive: currentPage == .home
-                    )
-                }
-                .frame(maxWidth: .infinity)
-                .disabled(currentPage == .home)
 
-                Button {
-                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                        currentPage = .history
-                    }
-                } label: {
-                    EnhancedBottomNavItem(
-                        systemName: "clock.fill",
-                        label: "History",
-                        isActive: currentPage == .history
-                    )
-                }
-                .frame(maxWidth: .infinity)
-                .disabled(currentPage == .history)
+            VStack(spacing: 0) {
+                // Native iOS hairline separator
+                Rectangle()
+                    .fill(Color(.separator).opacity(0.6))
+                    .frame(height: 0.5)
 
-                Button {
-                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-                    impactFeedback.impactOccurred()
-                } label: {
-                    EnhancedBottomNavItem(
-                        systemName: "person.fill",
-                        label: "Profile",
-                        isActive: currentPage == .userDetails
-                    )
+                HStack(spacing: 0) {
+                    Button {
+                        let impact = UIImpactFeedbackGenerator(style: .light)
+                        impact.impactOccurred()
+                        withAnimation(.spring(response: 0.45, dampingFraction: 0.75)) {
+                            currentPage = .home
+                        }
+                    } label: {
+                        EnhancedBottomNavItem(
+                            systemName: "house.fill",
+                            label: "Home",
+                            isActive: currentPage == .home
+                        )
+                    }
+                    .frame(maxWidth: .infinity)
+                    .disabled(currentPage == .home)
+
+                    Button {
+                        let impact = UIImpactFeedbackGenerator(style: .light)
+                        impact.impactOccurred()
+                        withAnimation(.spring(response: 0.45, dampingFraction: 0.75)) {
+                            currentPage = .history
+                        }
+                    } label: {
+                        EnhancedBottomNavItem(
+                            systemName: "clock.fill",
+                            label: "History",
+                            isActive: currentPage == .history
+                        )
+                    }
+                    .frame(maxWidth: .infinity)
+                    .disabled(currentPage == .history)
+
+                    Button {
+                        let impact = UIImpactFeedbackGenerator(style: .light)
+                        impact.impactOccurred()
+                    } label: {
+                        EnhancedBottomNavItem(
+                            systemName: "person.fill",
+                            label: "Profile",
+                            isActive: currentPage == .userDetails
+                        )
+                    }
+                    .frame(maxWidth: .infinity)
                 }
+                .padding(.top, 6)
+                .padding(.bottom, max(geo.safeAreaInsets.bottom - 4, 8))
                 .frame(maxWidth: .infinity)
             }
-            .padding(.horizontal, 24)
-            .padding(.vertical, 16)
             .background(
-                ZStack {
-                    RoundedRectangle(cornerRadius: 28, style: .continuous)
-                        .fill(Color.white)
-                        .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: -5)
-                    RoundedRectangle(cornerRadius: 28, style: .continuous)
-                        .stroke(Color.black.opacity(0.05), lineWidth: 1)
-                }
+                Rectangle()
+                    .fill(.ultraThinMaterial)
+                    .overlay(Color(.systemBackground).opacity(0.8))
+                    .ignoresSafeArea(edges: .bottom)
             )
-            .padding(.horizontal, 20)
-            .padding(.bottom, geo.safeAreaInsets.bottom > 0 ? geo.safeAreaInsets.bottom + 10 : 30)
         }
+        .ignoresSafeArea(edges: .bottom)
     }
 
     // MARK: - Handle edit/save with avatar
@@ -1299,7 +1308,7 @@ struct EnhancedDetailField: View {
             if editable {
                 TextField("", text: $text)
                     .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.textPrimary)
                     .padding(12)
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(10)
@@ -1309,7 +1318,7 @@ struct EnhancedDetailField: View {
             } else {
                 Text(text.isEmpty ? "Not set" : text)
                     .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(text.isEmpty ? .gray : .black)
+                    .foregroundColor(text.isEmpty ? .gray : Color.textPrimary)
                     .padding(12)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color.gray.opacity(0.1))
@@ -1331,7 +1340,7 @@ struct DetailRow: View {
             Spacer()
             Text(value.isEmpty ? "Not set" : value)
                 .font(.system(size: 16, weight: .medium))
-                .foregroundColor(.black)
+                .foregroundColor(Color.textPrimary)
         }
         .padding(12)
         .background(Color.gray.opacity(0.1))
@@ -1358,7 +1367,7 @@ struct StatView: View {
             }
             Text(value)
                 .font(.system(size: 16, weight: .bold))
-                .foregroundColor(.black)
+                .foregroundColor(Color.textPrimary)
             Text(label)
                 .font(.system(size: 12))
                 .foregroundColor(.gray)
@@ -1379,7 +1388,7 @@ struct SuccessfulAnimation: View {
                     .foregroundColor(.green)
                 Text("Saved!")
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.textPrimary)
             }
             .padding(20)
             .background(Color(.systemBackground).opacity(0.9))

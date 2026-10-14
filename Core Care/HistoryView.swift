@@ -60,35 +60,26 @@ struct ExportData: Codable {
     let exportDate: Date
 }
 
-// MARK: - Color Constants
+// MARK: - Color Constants (adaptive — auto light/dark via ThemeColors.swift)
 struct AppColors {
-    static let primaryColor = Color(red: 0.05, green: 0.08, blue: 0.13)
-    static let secondaryColor = Color(red: 0.98, green: 0.98, blue: 1.0)
-    static let accentColor = Color(red: 0.24, green: 0.55, blue: 1.0)
-    static let surfaceColor = Color.white
-    static let textPrimary = Color(red: 0.11, green: 0.13, blue: 0.19)
-    static let textSecondary = Color(red: 0.42, green: 0.47, blue: 0.57)
-    static let shadowColor = Color.black.opacity(0.05)
-    static let cardBackgroundColor = Color.white
-    
-    static let heroGradient = LinearGradient(
-        gradient: Gradient(colors: [
-            accentColor,
-            Color(red: 0.16, green: 0.82, blue: 0.91),
-            Color(red: 0.45, green: 0.32, blue: 0.95)
-        ]),
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
-    
-    static let cardGradient = LinearGradient(
-        gradient: Gradient(colors: [
-            surfaceColor,
-            Color(red: 0.99, green: 0.99, blue: 1.0)
-        ]),
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
+    static let primaryColor       = Color.textPrimary
+    static let secondaryColor     = Color.appBackground2
+    static let accentColor        = Color.appAccent
+    static let surfaceColor       = Color.cardBackground
+    static let textPrimary        = Color.textPrimary
+    static let textSecondary      = Color.textSecondary
+    static let shadowColor        = Color.cardShadow
+    static let cardBackgroundColor = Color.cardBackground
+
+    static let heroGradient = LinearGradient.appHero
+
+    static var cardGradient: LinearGradient {
+        LinearGradient(
+            gradient: Gradient(colors: [Color.cardBackground, Color.appBackground2]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+    }
 }
 
 // MARK: - Enhanced History View with Premium Design
@@ -154,17 +145,15 @@ struct HistoryView: View {
                 
                 contentView(geo: geo)
                 
-                if currentPage == .history {
-                    enhancedBottomNavigation(geo: geo)
-                        .transition(.opacity)
-                        .animation(.spring(response: 0.6, dampingFraction: 0.8), value: currentPage)
-                }
-                
                 if isLoading {
                     PremiumLoadingOverlay()
                 }
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             validateUserSession()
             fetchReport()
@@ -350,7 +339,7 @@ struct HistoryView: View {
                         .padding(.top, 16)
                         
                         // Bottom spacing for navigation
-                        Color.clear.frame(height: geo.size.height * 0.15)
+                        Color.clear.frame(height: 110 + geo.safeAreaInsets.bottom)
                     }
                 }
                 .refreshable {
@@ -439,8 +428,8 @@ struct HistoryView: View {
                 .scaleEffect(headerOpacity)
             }
             .padding(.horizontal, 24)
-            .padding(.top, geo.safeAreaInsets.top > 0 ? geo.safeAreaInsets.top + 16 : 32)
-            .padding(.bottom, 20)
+            .padding(.top, max(geo.safeAreaInsets.top, 44) + 8)
+            .padding(.bottom, 16)
             
             // Divider with Gradient
             LinearGradient(
@@ -711,61 +700,56 @@ struct HistoryView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
-    // MARK: - Enhanced Bottom Navigation
+    // MARK: - Native iOS Bottom Navigation Tab Bar
     private func enhancedBottomNavigation(geo: GeometryProxy) -> some View {
-        VStack {
+        VStack(spacing: 0) {
             Spacer()
-            
-            HStack(spacing: 0) {
-                ForEach([
-                    ("house.fill", "Home", HomePageSection.home),
-                    ("clock.fill", "History", HomePageSection.history),
-                    ("person.fill", "Profile", HomePageSection.userDetails)
-                ], id: \.1) { icon, label, page in
-                    Button {
-                        if page != .history {
-                            withAnimation(.spring(response: 0.4, dampingFraction: 0.6)) {
-                                currentPage = page
+
+            VStack(spacing: 0) {
+                // Native iOS hairline separator
+                Rectangle()
+                    .fill(Color(.separator).opacity(0.6))
+                    .frame(height: 0.5)
+
+                HStack(spacing: 0) {
+                    ForEach([
+                        ("house.fill", "Home", HomePageSection.home),
+                        ("clock.fill", "History", HomePageSection.history),
+                        ("person.fill", "Profile", HomePageSection.userDetails)
+                    ], id: \.1) { icon, label, page in
+                        Button {
+                            if page != .history {
+                                let impact = UIImpactFeedbackGenerator(style: .light)
+                                impact.impactOccurred()
+                                withAnimation(.spring(response: 0.45, dampingFraction: 0.75)) {
+                                    currentPage = page
+                                }
+                            } else {
+                                let impact = UIImpactFeedbackGenerator(style: .light)
+                                impact.impactOccurred()
                             }
-                        } else {
-                            let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-                            impactFeedback.impactOccurred()
+                        } label: {
+                            PremiumBottomNavItem(
+                                systemName: icon,
+                                label: label,
+                                isActive: currentPage == page
+                            )
                         }
-                    } label: {
-                        PremiumBottomNavItem(
-                            systemName: icon,
-                            label: label,
-                            isActive: currentPage == page
-                        )
+                        .frame(maxWidth: .infinity)
                     }
-                    .frame(maxWidth: .infinity)
                 }
+                .padding(.top, 6)
+                .padding(.bottom, max(geo.safeAreaInsets.bottom - 4, 8))
+                .frame(maxWidth: .infinity)
             }
-            .padding(.horizontal, 24)
-            .padding(.vertical, 16)
             .background(
-                ZStack {
-                    RoundedRectangle(cornerRadius: 28, style: .continuous)
-                        .fill(.ultraThinMaterial)
-                        .shadow(color: AppColors.shadowColor.opacity(0.3), radius: 20, x: 0, y: -5)
-                    
-                    RoundedRectangle(cornerRadius: 28, style: .continuous)
-                        .stroke(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    AppColors.textSecondary.opacity(0.1),
-                                    AppColors.accentColor.opacity(0.2)
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            ),
-                            lineWidth: 1
-                        )
-                }
+                Rectangle()
+                    .fill(.ultraThinMaterial)
+                    .overlay(Color(.systemBackground).opacity(0.8))
+                    .ignoresSafeArea(edges: .bottom)
             )
-            .padding(.horizontal, 20)
-            .padding(.bottom, geo.safeAreaInsets.bottom > 0 ? geo.safeAreaInsets.bottom + 10 : 30)
         }
+        .ignoresSafeArea(edges: .bottom)
     }
     
     // MARK: - Refresh Data Helper Function
@@ -1224,7 +1208,7 @@ struct PremiumRiskAssessmentCard: View {
         .padding(24)
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(Color.white)
+                .fill(AppColors.cardBackgroundColor)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20, style: .continuous)
                         .stroke(
@@ -1252,31 +1236,26 @@ struct PremiumBottomNavItem: View {
     var systemName: String
     var label: String
     var isActive: Bool
-    
+
+    private let activeColor = Color(red: 0.0, green: 0.48, blue: 1.0) // Apple System Blue
+    private let inactiveColor = Color(red: 0.55, green: 0.58, blue: 0.65) // Apple Secondary Label
+
     var body: some View {
-        VStack(spacing: 8) {
-            ZStack {
-                if isActive {
-                    Circle()
-                        .fill(AppColors.accentColor.opacity(0.15))
-                        .frame(width: 36, height: 36)
-                        .scaleEffect(isActive ? 1.0 : 0.0)
-                        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isActive)
-                }
-                
-                Image(systemName: systemName)
-                    .font(.system(size: isActive ? 22 : 20, weight: isActive ? .bold : .medium))
-                    .foregroundColor(isActive ? AppColors.accentColor : AppColors.textSecondary)
-                    .scaleEffect(isActive ? 1.1 : 1.0)
-                    .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isActive)
-            }
-            
+        VStack(spacing: 3) {
+            Image(systemName: systemName)
+                .font(.system(size: 22, weight: isActive ? .bold : .medium))
+                .foregroundColor(isActive ? activeColor : inactiveColor)
+                .scaleEffect(isActive ? 1.06 : 1.0)
+                .animation(.spring(response: 0.25, dampingFraction: 0.7), value: isActive)
+
             Text(label)
-                .font(.system(size: 11, weight: isActive ? .semibold : .medium))
-                .foregroundColor(isActive ? AppColors.accentColor : AppColors.textSecondary)
-                .animation(.easeInOut(duration: 0.2), value: isActive)
+                .font(.system(size: 10, weight: isActive ? .semibold : .medium))
+                .foregroundColor(isActive ? activeColor : inactiveColor)
+                .animation(.easeInOut(duration: 0.15), value: isActive)
         }
-        .frame(height: 65)
+        .frame(maxWidth: .infinity)
+        .frame(height: 48)
+        .contentShape(Rectangle())
     }
 }
 
@@ -1333,8 +1312,8 @@ struct PremiumHealthMetricsOverview: View {
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+                .fill(AppColors.cardBackgroundColor)
+                .shadow(color: AppColors.shadowColor, radius: 10, x: 0, y: 5)
         )
         .padding(.horizontal, 20)
     }
@@ -1661,8 +1640,8 @@ struct PremiumTrendChartsSection: View {
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+                .fill(AppColors.cardBackgroundColor)
+                .shadow(color: AppColors.shadowColor, radius: 10, x: 0, y: 5)
         )
         .padding(.horizontal, 20)
     }
@@ -2185,8 +2164,8 @@ struct DailyReadingCard: View {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 2)
+                .fill(AppColors.cardBackgroundColor)
+                .shadow(color: AppColors.shadowColor, radius: 4, x: 0, y: 2)
         )
     }
     
@@ -2425,7 +2404,7 @@ struct EnhancedExportDataView: View {
                         }
                         .background(
                             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                .fill(Color.white)
+                                .fill(AppColors.cardBackgroundColor)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 20, style: .continuous)
                                         .stroke(

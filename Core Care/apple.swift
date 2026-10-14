@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import HealthKit
 
 // MARK: - Models & Constants
 struct HealthMetric {
@@ -69,76 +68,73 @@ struct HealthRecommendations {
 
 // MARK: - Main Apple Health View with Enhanced Animations
 struct AppleView: View {
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var healthManager = HealthDataManager()
     @State private var selectedTab = 0
     @State private var animationTrigger = false
     @State private var showDetailedInfo = false
     @State private var pulseAnimation = false
+    @Namespace private var tabAnimationNamespace
     
-    // Color scheme
-    private let primaryGradient = LinearGradient(
-        gradient: Gradient(colors: [
-            Color(red: 0.05, green: 0.07, blue: 0.12),
-            Color(red: 0.1, green: 0.12, blue: 0.2)
-        ]),
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
-    
-    private let accentColor = Color(red: 0.24, green: 0.55, blue: 1.0)
-    private let surfaceColor = Color.white
-    private let textPrimary = Color(red: 0.11, green: 0.13, blue: 0.19)
-    private let textSecondary = Color(red: 0.42, green: 0.47, blue: 0.57)
+    // MARK: - Adaptive colour tokens
+    private let accentColor    = Color.appAccent
+    private let surfaceColor   = Color.cardBackground
+    private let textPrimary    = Color.textPrimary
+    private let textSecondary  = Color.textSecondary
     
     var body: some View {
-        ZStack {
-            // Enhanced animated background
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.98, green: 0.98, blue: 1.0),
-                    Color(red: 0.96, green: 0.97, blue: 1.0)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
-            
-            // Floating background circles
-            floatingCirclesBackground()
+        GeometryReader { geo in
+            ZStack {
+                // Adaptive background
+                Color.appBackground2
                 .ignoresSafeArea()
-            
-            VStack(spacing: 0) {
-                // Premium Header with enhanced animations
-                headerView()
                 
-                // Segmented Control with smooth transitions
-                segmentedControlView()
+                // Floating background circles
+                floatingCirclesBackground()
+                    .ignoresSafeArea()
                 
-                // Content with sophisticated animations
-                ZStack {
-                    if selectedTab == 0 {
-                        stepsView()
-                            .transition(.asymmetric(
-                                insertion: .scale(scale: 0.92, anchor: .center).combined(with: .opacity),
-                                removal: .scale(scale: 1.08, anchor: .center).combined(with: .opacity)
-                            ))
-                    } else {
-                        sleepView()
-                            .transition(.asymmetric(
-                                insertion: .scale(scale: 0.92, anchor: .center).combined(with: .opacity),
-                                removal: .scale(scale: 1.08, anchor: .center).combined(with: .opacity)
-                            ))
+                VStack(spacing: 0) {
+                    // Premium Header with enhanced animations
+                    headerView(geo: geo)
+                    
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            // Segmented Control with smooth transitions
+                            segmentedControlView()
+                                .padding(.top, 16)
+                            
+                            // Content with sophisticated animations
+                            ZStack {
+                                if selectedTab == 0 {
+                                    stepsView()
+                                        .transition(.asymmetric(
+                                            insertion: .scale(scale: 0.92, anchor: .center).combined(with: .opacity),
+                                            removal: .scale(scale: 1.08, anchor: .center).combined(with: .opacity)
+                                        ))
+                                } else {
+                                    sleepView()
+                                        .transition(.asymmetric(
+                                            insertion: .scale(scale: 0.92, anchor: .center).combined(with: .opacity),
+                                            removal: .scale(scale: 1.08, anchor: .center).combined(with: .opacity)
+                                        ))
+                                }
+                            }
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 24)
+                            
+                            // WHO Citation Footer
+                            whoFooterView()
+                                .padding(.bottom, max(geo.safeAreaInsets.bottom, 20) + 16)
+                        }
                     }
                 }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 24)
-                
-                Spacer()
-                
-                // WHO Citation Footer
-                whoFooterView()
             }
+            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             withAnimation(.easeInOut(duration: 0.8)) {
                 animationTrigger = true
@@ -169,17 +165,26 @@ struct AppleView: View {
     }
     
     // MARK: - Header View with Enhanced Animations
-    private func headerView() -> some View {
+    private func headerView(geo: GeometryProxy) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                VStack(alignment: .leading, spacing: 4) {
+            HStack(spacing: 12) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(textPrimary)
+                        .padding(10)
+                        .background(Color.appFill)
+                        .clipShape(Circle())
+                }
+
+                VStack(alignment: .leading, spacing: 2) {
                     Text("Apple Health Analytics")
-                        .font(.system(size: 24, weight: .bold))
+                        .font(.system(size: 20, weight: .bold))
                         .foregroundColor(textPrimary)
                         .scaleEffect(animationTrigger ? 1.0 : 0.95)
                     
                     Text("Real-time wellness insights")
-                        .font(.system(size: 14, weight: .medium))
+                        .font(.system(size: 13, weight: .medium))
                         .foregroundColor(textSecondary)
                         .opacity(animationTrigger ? 1.0 : 0.7)
                 }
@@ -187,15 +192,15 @@ struct AppleView: View {
                 Spacer()
                 
                 // Status Badge with pulse effect
-                HStack(spacing: 8) {
+                HStack(spacing: 6) {
                     ZStack {
                         Circle()
                             .fill(Color.green)
-                            .frame(width: 12, height: 12)
+                            .frame(width: 10, height: 10)
                         
                         Circle()
                             .stroke(Color.green, lineWidth: 1.5)
-                            .frame(width: 12, height: 12)
+                            .frame(width: 10, height: 10)
                             .scaleEffect(pulseAnimation ? 1.8 : 1.0)
                             .opacity(pulseAnimation ? 0 : 1)
                     }
@@ -204,61 +209,155 @@ struct AppleView: View {
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundColor(.green)
                 }
-                .padding(.horizontal, 12)
+                .padding(.horizontal, 10)
                 .padding(.vertical, 6)
                 .background(Color.green.opacity(0.1))
                 .cornerRadius(8)
                 .scaleEffect(animationTrigger ? 1.0 : 0.9)
             }
         }
-        .padding(20)
+        .padding(.horizontal, 20)
+        .padding(.top, max(geo.safeAreaInsets.top, 44) + 8)
+        .padding(.bottom, 14)
         .background(surfaceColor)
         .shadow(color: Color.black.opacity(0.08), radius: 15, x: 0, y: 6)
         .animation(.spring(response: 0.6, dampingFraction: 0.75), value: animationTrigger)
     }
     
-    // MARK: - Segmented Control with Enhanced Animations
+    // MARK: - iOS Liquid Segmented Control Switch Tab
     private func segmentedControlView() -> some View {
-        HStack(spacing: 0) {
-            ForEach(["Steps", "Sleep"], id: \.self) { tab in
-                Button(action: {
-                    withAnimation(.spring(response: 0.4, dampingFraction: 0.65)) {
-                        selectedTab = tab == "Steps" ? 0 : 1
-                    }
-                }) {
-                    VStack(spacing: 6) {
-                        ZStack {
-                            if selectedTab == (tab == "Steps" ? 0 : 1) {
-                                Circle()
-                                    .fill(accentColor.opacity(0.15))
-                                    .frame(width: 40, height: 40)
-                                    .scaleEffect(1.1)
-                            }
-                            
-                            Image(systemName: tab == "Steps" ? "figure.walk" : "bed.double.fill")
-                                .font(.system(size: 18, weight: .semibold))
-                        }
-                        
-                        Text(tab)
-                            .font(.system(size: 13, weight: .semibold))
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
-                    .foregroundColor(selectedTab == (tab == "Steps" ? 0 : 1) ? .white : textSecondary)
-                    .background(
-                        selectedTab == (tab == "Steps" ? 0 : 1)
-                            ? accentColor
-                            : Color.clear
-                    )
-                    .cornerRadius(12)
-                }
-            }
+        HStack(spacing: 8) {
+            // Steps Tab (Index 0)
+            liquidTabButton(
+                title: "Steps",
+                subtitle: "\(healthManager.todayStepCount.formatted()) steps",
+                icon: "figure.walk",
+                index: 0,
+                liquidGradient: LinearGradient(
+                    colors: [
+                        Color(red: 0.12, green: 0.82, blue: 0.48),
+                        Color(red: 0.05, green: 0.65, blue: 0.42)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ),
+                glowColor: Color(red: 0.12, green: 0.82, blue: 0.48)
+            )
+
+            // Sleep Tab (Index 1)
+            liquidTabButton(
+                title: "Sleep",
+                subtitle: String(format: "%.1f hrs", healthManager.lastSleepHours),
+                icon: "bed.double.fill",
+                index: 1,
+                liquidGradient: LinearGradient(
+                    colors: [
+                        Color(red: 0.38, green: 0.38, blue: 0.96),
+                        Color(red: 0.24, green: 0.20, blue: 0.84)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ),
+                glowColor: Color(red: 0.38, green: 0.38, blue: 0.96)
+            )
         }
-        .padding(8)
-        .background(Color.black.opacity(0.05))
-        .cornerRadius(16)
+        .padding(6)
+        .background(
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(Color(.systemBackground).opacity(0.85))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 24, style: .continuous)
+                        .stroke(Color.cardBorder, lineWidth: 1)
+                )
+                .shadow(color: Color.cardShadow, radius: 18, x: 0, y: 6)
+        )
         .padding(.horizontal, 20)
-        .padding(.vertical, 16)
+        .padding(.vertical, 14)
+    }
+
+    @ViewBuilder
+    private func liquidTabButton(
+        title: String,
+        subtitle: String,
+        icon: String,
+        index: Int,
+        liquidGradient: LinearGradient,
+        glowColor: Color
+    ) -> some View {
+        let isSelected = selectedTab == index
+
+        Button {
+            let impact = UIImpactFeedbackGenerator(style: .medium)
+            impact.impactOccurred()
+            withAnimation(.spring(response: 0.38, dampingFraction: 0.72)) {
+                selectedTab = index
+            }
+        } label: {
+            HStack(spacing: 12) {
+                // Large Prominent Icon
+                ZStack {
+                    if isSelected {
+                        Circle()
+                            .fill(Color.white.opacity(0.22))
+                            .frame(width: 44, height: 44)
+                            .scaleEffect(1.05)
+                    } else {
+                        Circle()
+                            .fill(Color.black.opacity(0.04))
+                            .frame(width: 44, height: 44)
+                    }
+
+                    Image(systemName: icon)
+                        .font(.system(size: 22, weight: .bold))
+                        .foregroundColor(isSelected ? .white : Color(.secondaryLabel))
+                        .scaleEffect(isSelected ? 1.08 : 1.0)
+                }
+
+                // Text Content
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                        .foregroundColor(isSelected ? .white : Color(.label))
+
+                    Text(subtitle)
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundColor(isSelected ? Color.white.opacity(0.85) : Color(.secondaryLabel))
+                        .lineLimit(1)
+                }
+
+                Spacer(minLength: 0)
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 12)
+            .frame(maxWidth: .infinity)
+            .frame(height: 68)
+            .background(
+                ZStack {
+                    if isSelected {
+                        RoundedRectangle(cornerRadius: 18, style: .continuous)
+                            .fill(liquidGradient)
+                            .matchedGeometryEffect(id: "liquidActiveIndicator", in: tabAnimationNamespace)
+                            .shadow(color: glowColor.opacity(0.4), radius: 12, x: 0, y: 5)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                                    .stroke(
+                                        LinearGradient(
+                                            colors: [
+                                                Color.white.opacity(0.55),
+                                                Color.white.opacity(0.12)
+                                            ],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ),
+                                        lineWidth: 1.2
+                                    )
+                            )
+                    }
+                }
+            )
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(PlainButtonStyle())
     }
     
     // MARK: - Steps View with Enhanced Graphics

@@ -1,0 +1,216 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/BPView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Error",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 54
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 55
+        }
+      },
+      {
+        "comment": "",
+        "key": "Blood Pressure",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 186
+        }
+      },
+      {
+        "comment": "",
+        "key": "mmHg",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 303
+        }
+      },
+      {
+        "comment": "",
+        "key": "Current Reading",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 250
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 265
+        }
+      },
+      {
+        "comment": "",
+        "key": "SYSTOLIC",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 269
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 292
+        }
+      },
+      {
+        "comment": "",
+        "key": "DIASTOLIC",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 296
+        }
+      },
+      {
+        "comment": "",
+        "key": "Category",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 333
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 403
+        }
+      },
+      {
+        "comment": "",
+        "key": "Heart Rate",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 378
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 393
+        }
+      },
+      {
+        "comment": "",
+        "key": "bpm",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 397
+        }
+      },
+      {
+        "comment": "",
+        "key": "--",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 412
+        }
+      },
+      {
+        "comment": "",
+        "key": "No data",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 416
+        }
+      },
+      {
+        "comment": "",
+        "key": "Health Insights",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 439
+        }
+      },
+      {
+        "comment": "",
+        "key": "Personalized",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 445
+        }
+      },
+      {
+        "comment": "",
+        "key": "Loading BP...",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 527
+        }
+      },
+      {
+        "comment": "",
+        "key": "Loading Heart Rate...",
+        "location": {
+          "startingColumn": 52,
+          "startingLine": 527
+        }
+      },
+      {
+        "comment": "",
+        "key": "Citation",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 836
+        }
+      },
+      {
+        "comment": "",
+        "key": "Medical Source",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 795
+        }
+      },
+      {
+        "comment": "",
+        "key": "Disclaimer",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 825
+        }
+      },
+      {
+        "comment": "",
+        "key": "This app provides information based on established medical guidelines. Always consult with a qualified healthcare provider for medical advice, diagnosis, or treatment.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 829
+        }
+      },
+      {
+        "comment": "",
+        "key": "View Source",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 814
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 840
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,256 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/UserDetailsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Notice",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 159
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 160
+        }
+      },
+      {
+        "comment": "",
+        "key": "Welcome to CoreCare!",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 301
+        }
+      },
+      {
+        "comment": "",
+        "key": "Please complete your profile to get started with personalized healthcare recommendations.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 309
+        }
+      },
+      {
+        "comment": "",
+        "key": "Complete Your Profile",
+        "location": {
+          "startingColumn": 56,
+          "startingLine": 336
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your Profile",
+        "location": {
+          "startingColumn": 82,
+          "startingLine": 336
+        }
+      },
+      {
+        "comment": "",
+        "key": "Choose Your Avatar",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 421
+        }
+      },
+      {
+        "comment": "",
+        "key": "✕",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 427
+        }
+      },
+      {
+        "comment": "",
+        "key": "Default Avatar",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 453
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter Your Details",
+        "location": {
+          "startingColumn": 56,
+          "startingLine": 543
+        }
+      },
+      {
+        "comment": "",
+        "key": "Personal Information",
+        "location": {
+          "startingColumn": 79,
+          "startingLine": 543
+        }
+      },
+      {
+        "comment": "",
+        "key": "Complete Profile",
+        "location": {
+          "startingColumn": 73,
+          "startingLine": 588
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save Changes",
+        "location": {
+          "startingColumn": 94,
+          "startingLine": 588
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit Profile",
+        "location": {
+          "startingColumn": 112,
+          "startingLine": 588
+        }
+      },
+      {
+        "comment": "",
+        "key": "Log Out",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 623
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete Account",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 671
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete Account",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 715
+        }
+      },
+      {
+        "comment": "",
+        "key": "This action cannot be undone!",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 722
+        }
+      },
+      {
+        "comment": "",
+        "key": "Deleting your account will permanently remove all your health data, history, and profile information from CoreCare.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 727
+        }
+      },
+      {
+        "comment": "",
+        "key": "Type 'DELETE' to confirm:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 736
+        }
+      },
+      {
+        "comment": "",
+        "key": "Type DELETE here",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 740
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 752
+        }
+      },
+      {
+        "comment": "",
+        "key": "Continue",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 765
+        }
+      },
+      {
+        "comment": "",
+        "key": "Final Warning",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 803
+        }
+      },
+      {
+        "comment": "",
+        "key": "Are you absolutely sure?",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 810
+        }
+      },
+      {
+        "comment": "",
+        "key": "This will immediately and permanently delete your account and all associated data. You will be logged out and cannot recover this information.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 815
+        }
+      },
+      {
+        "comment": "",
+        "key": "Keep My Account",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 824
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete Forever",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 838
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 1304
+        }
+      },
+      {
+        "comment": "",
+        "key": "Saved!",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1384
+        }
+      },
+      {
+        "comment": "",
+        "key": "Loading...",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1406
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/LoginView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Back",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 245
+        }
+      },
+      {
+        "comment": "",
+        "key": "Welcome Back",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 265
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sign in to continue your care journey",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 271
+        }
+      },
+      {
+        "comment": "",
+        "key": "Email or Phone",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 287
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter your email or phone",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 315
+        }
+      },
+      {
+        "comment": "",
+        "key": "Password",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 336
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter your password",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 366
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter your password",
+        "location": {
+          "startingColumn": 61,
+          "startingLine": 372
+        }
+      },
+      {
+        "comment": "",
+        "key": "Signing In...",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 443
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sign In",
+        "location": {
+          "startingColumn": 72,
+          "startingLine": 443
+        }
+      },
+      {
+        "comment": "",
+        "key": "Forgot password?",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 479
+        }
+      },
+      {
+        "comment": "",
+        "key": "OR",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 503
+        }
+      },
+      {
+        "comment": "",
+        "key": "Don't have an account?",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 519
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sign up",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 526
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create New Account",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 540
+        }
+      }
+    ]
+  },
+  "version": 1
+}

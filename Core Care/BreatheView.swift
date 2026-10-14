@@ -31,16 +31,8 @@ struct BreatheView: View {
 
     var body: some View {
         ZStack {
-            // Enhanced gradient background
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.95, green: 0.97, blue: 1.0),
-                    Color(red: 0.9, green: 0.95, blue: 0.98),
-                    Color(red: 1.0, green: 0.96, blue: 0.9)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            // Adaptive background
+            Color.appBackground2
             .ignoresSafeArea()
             
             if goToAI {
@@ -75,6 +67,10 @@ struct BreatheView: View {
                     .animation(.easeInOut(duration: 0.4), value: goToAI || goToHome)
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .environmentObject(userManager)
         .alert("Session Complete! 🎉", isPresented: $showCompletionAlert) {
             Button("Return to Analysis") {
@@ -94,63 +90,68 @@ struct BreatheView: View {
 
     var mainContent: some View {
         GeometryReader { geometry in
-            ScrollView {
-                VStack(spacing: 0) {
-                    // Enhanced Header
-                    HStack {
-                        Button {
-                            handleEarlySessionEnd()
-                        } label: {
-                            ZStack {
-                                Circle()
-                                    .fill(Color.white.opacity(0.7))
-                                    .frame(width: 36, height: 36)
-                                    .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
-                                
-                                Image(systemName: "chevron.left")
-                                    .foregroundColor(.black.opacity(0.8))
-                                    .font(.system(size: 16, weight: .medium))
-                            }
-                        }
+            let safeTop = max(geometry.safeAreaInsets.top, 44)
+            let safeBottom = max(geometry.safeAreaInsets.bottom, 20)
 
-                        Spacer()
-                        
-                        VStack(spacing: 2) {
-                            Text("Breathing Exercise")
-                                .font(.system(size: min(20, geometry.size.width * 0.055), weight: .bold, design: .rounded))
-                                .foregroundColor(.black.opacity(0.9))
+            VStack(spacing: 0) {
+                // Enhanced Header pinned at top
+                HStack {
+                    Button {
+                        handleEarlySessionEnd()
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .fill(Color.white.opacity(0.85))
+                                .frame(width: 44, height: 44)
+                                .shadow(color: .black.opacity(0.1), radius: 6, x: 0, y: 2)
                             
-                            Text("Mindful Meditation")
-                                .font(.system(size: min(12, geometry.size.width * 0.032), weight: .medium))
-                                .foregroundColor(.orange.opacity(0.8))
-                        }
-                        
-                        Spacer()
-                        
-                        // Music control button
-                        Button {
-                            isMuted.toggle()
-                            if isMuted {
-                                audioPlayer?.pause()
-                            } else {
-                                audioPlayer?.play()
-                            }
-                        } label: {
-                            ZStack {
-                                Circle()
-                                    .fill(Color.white.opacity(0.7))
-                                    .frame(width: 36, height: 36)
-                                    .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
-                                
-                                Image(systemName: isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
-                                    .foregroundColor(.orange.opacity(0.9))
-                                    .font(.system(size: 14, weight: .medium))
-                            }
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.black.opacity(0.8))
+                                .font(.system(size: 16, weight: .semibold))
                         }
                     }
-                    .padding(.top, max(10, geometry.safeAreaInsets.top + 10))
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 15)
+
+                    Spacer()
+                    
+                    VStack(spacing: 2) {
+                        Text("Breathing Exercise")
+                            .font(.system(size: min(20, geometry.size.width * 0.055), weight: .bold, design: .rounded))
+                            .foregroundColor(.black.opacity(0.9))
+                        
+                        Text("Mindful Meditation")
+                            .font(.system(size: min(12, geometry.size.width * 0.032), weight: .medium))
+                            .foregroundColor(.orange.opacity(0.8))
+                    }
+                    
+                    Spacer()
+                    
+                    // Music control button
+                    Button {
+                        isMuted.toggle()
+                        if isMuted {
+                            audioPlayer?.pause()
+                        } else {
+                            audioPlayer?.play()
+                        }
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .fill(Color.white.opacity(0.85))
+                                .frame(width: 44, height: 44)
+                                .shadow(color: .black.opacity(0.1), radius: 6, x: 0, y: 2)
+                            
+                            Image(systemName: isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
+                                .foregroundColor(.orange.opacity(0.9))
+                                .font(.system(size: 16, weight: .medium))
+                        }
+                    }
+                }
+                .padding(.top, safeTop + 8)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 12)
+
+                ScrollView {
+                    VStack(spacing: 0) {
 
                     // Enhanced subtitle
                     VStack(spacing: 5) {
@@ -351,15 +352,16 @@ struct BreatheView: View {
                         .background(
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.orange.opacity(0.5), lineWidth: 1)
-                                .background(Color.white.opacity(0.3))
+                                .background(Color.orange.opacity(0.12))
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                         )
                     }
-                    .padding(.bottom, max(20, geometry.safeAreaInsets.bottom + 20))
+                    .padding(.bottom, safeBottom + 20)
                 }
-                .frame(minHeight: geometry.size.height)
             }
         }
+        }
+        .ignoresSafeArea()
         .onAppear {
             startTimer()
             setupAudio()

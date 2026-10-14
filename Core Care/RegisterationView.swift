@@ -97,22 +97,18 @@ struct RegistrationView: View {
                     
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .animation(.spring(response: 0.6, dampingFraction: 0.8), value: currentView)
     }
 
     var mainView: some View {
         GeometryReader { geo in
             ZStack {
-                // Enhanced Background with Gradient
-                LinearGradient(
-                    gradient: Gradient(colors: [
-                        Color("bluefont").opacity(0.05),
-                        Color.white,
-                        Color("bluefont").opacity(0.03)
-                    ]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
+                // Adaptive Background
+                LinearGradient.appSplash
                 .ignoresSafeArea()
                 
                 // Enhanced Logo with subtle animation
@@ -150,7 +146,7 @@ struct RegistrationView: View {
                                 Spacer()
                             }
                             .padding(.horizontal, 24)
-                            .padding(.top, 60)
+                            .padding(.top, max(geo.safeAreaInsets.top, 44) + 8)
                             
                             // Enhanced Title Section
                             VStack(spacing: 8) {
@@ -189,9 +185,9 @@ struct RegistrationView: View {
                                         )
                                         .background(
                                             RoundedRectangle(cornerRadius: 16)
-                                                .fill(Color.white)
+                                                .fill(Color.cardBackground)
                                                 .shadow(
-                                                    color: emailFocused ? Color("bluefont").opacity(0.1) : Color.black.opacity(0.02),
+                                                    color: emailFocused ? Color("bluefont").opacity(0.15) : Color.cardShadow,
                                                     radius: emailFocused ? 8 : 2,
                                                     x: 0,
                                                     y: emailFocused ? 4 : 1
@@ -239,9 +235,9 @@ struct RegistrationView: View {
                                         )
                                         .background(
                                             RoundedRectangle(cornerRadius: 16)
-                                                .fill(Color.white)
+                                                .fill(Color.cardBackground)
                                                 .shadow(
-                                                    color: passwordFocused ? Color("bluefont").opacity(0.1) : Color.black.opacity(0.02),
+                                                    color: passwordFocused ? Color("bluefont").opacity(0.15) : Color.cardShadow,
                                                     radius: passwordFocused ? 8 : 2,
                                                     x: 0,
                                                     y: passwordFocused ? 4 : 1
@@ -345,9 +341,9 @@ struct RegistrationView: View {
                                         )
                                         .background(
                                             RoundedRectangle(cornerRadius: 16)
-                                                .fill(Color.white)
+                                                .fill(Color.cardBackground)
                                                 .shadow(
-                                                    color: confirmPasswordFocused ? Color("bluefont").opacity(0.1) : Color.black.opacity(0.02),
+                                                    color: confirmPasswordFocused ? Color("bluefont").opacity(0.15) : Color.cardShadow,
                                                     radius: confirmPasswordFocused ? 8 : 2,
                                                     x: 0,
                                                     y: confirmPasswordFocused ? 4 : 1
@@ -523,7 +519,7 @@ struct RegistrationView: View {
                                 .fontWeight(.semibold)
                                 .foregroundColor(.secondary)
                                 .padding(.horizontal, 20)
-                                .background(Color.white)
+                                .background(Color.appBackground)
                             
                             Rectangle()
                                 .fill(Color.gray.opacity(0.3))
@@ -568,7 +564,7 @@ struct RegistrationView: View {
                                         .stroke(Color("bluefont"), lineWidth: 2)
                                         .background(
                                             RoundedRectangle(cornerRadius: 16)
-                                                .fill(Color.white)
+                                                .fill(Color.cardBackground)
                                         )
                                 )
                                 .shadow(
@@ -581,12 +577,16 @@ struct RegistrationView: View {
                             .padding(.horizontal, 24)
                         }
                         
-                        Spacer(minLength: 50)
+                        Spacer(minLength: max(geo.safeAreaInsets.bottom, 20) + 20)
                     }
                 }
                 .frame(width: geo.size.width, alignment: .topLeading)
             }
+            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             // Dismiss keyboard when tapping outside

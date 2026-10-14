@@ -1,0 +1,376 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/HRCheckView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 155
+        }
+      },
+      {
+        "comment": "",
+        "key": "Continue",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 166
+        }
+      },
+      {
+        "comment": "",
+        "key": "HeartScope Pro",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1636
+        }
+      },
+      {
+        "comment": "",
+        "key": "Live",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 1669
+        }
+      },
+      {
+        "comment": "",
+        "key": "Live",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 1903
+        }
+      },
+      {
+        "comment": "",
+        "key": "BPM",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1917
+        }
+      },
+      {
+        "comment": "",
+        "key": "FIXED: Place finger on camera + flash",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2048
+        }
+      },
+      {
+        "comment": "",
+        "key": "Measure Heart Rate",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2036
+        }
+      },
+      {
+        "comment": "",
+        "key": "Heart Rate History",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 2146
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld measurements",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 2160
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Latest: %lld BPM",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 2165
+        }
+      },
+      {
+        "comment": "",
+        "key": "Recent",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 2185
+        }
+      },
+      {
+        "comment": "",
+        "key": "All",
+        "location": {
+          "startingColumn": 62,
+          "startingLine": 2185
+        }
+      },
+      {
+        "comment": "",
+        "key": "📊 Load History",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 2291
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Heart Rate Data Yet",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 2269
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start measuring to see your",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2274
+        }
+      },
+      {
+        "comment": "",
+        "key": "heart rate history",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2279
+        }
+      },
+      {
+        "comment": "",
+        "key": "← Scroll to see more data →",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2317
+        }
+      },
+      {
+        "comment": "",
+        "key": "Time",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 2328
+        }
+      },
+      {
+        "comment": "",
+        "key": "BPM",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 2329
+        }
+      },
+      {
+        "comment": "",
+        "key": "Time",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 2337
+        }
+      },
+      {
+        "comment": "",
+        "key": "BPM",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 2338
+        }
+      },
+      {
+        "comment": "",
+        "key": "Time",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 2345
+        }
+      },
+      {
+        "comment": "",
+        "key": "Zero",
+        "location": {
+          "startingColumn": 44,
+          "startingLine": 2346
+        }
+      },
+      {
+        "comment": "",
+        "key": "BPM",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 2347
+        }
+      },
+      {
+        "comment": "",
+        "key": "Heart Rate",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2411
+        }
+      },
+      {
+        "comment": "",
+        "key": "Updated: %@",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 2444
+        }
+      },
+      {
+        "comment": "",
+        "key": "Latest:",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 2421
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld BPM",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 2425
+        }
+      },
+      {
+        "comment": "",
+        "key": "📸 Camera Access Required",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 2859
+        }
+      },
+      {
+        "comment": "",
+        "key": "FIXED HeartScope needs camera access to measure your heart rate using the camera flash. This data stays on your device.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 2863
+        }
+      },
+      {
+        "comment": "",
+        "key": "⚙️ Open Settings",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 2871
+        }
+      },
+      {
+        "comment": "",
+        "key": "❌ Cancel",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 2890
+        }
+      },
+      {
+        "comment": "",
+        "key": "FIXED HeartScope Pro",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2944
+        }
+      },
+      {
+        "comment": "",
+        "key": "Signal Quality:",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 3033
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 3037
+        }
+      },
+      {
+        "comment": "",
+        "key": "🎯 FIXED: Good placement! Hold steady while we measure...",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 3073
+        }
+      },
+      {
+        "comment": "",
+        "key": "📱 FIXED: Place your fingertip over BOTH camera and flash",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 3074
+        }
+      },
+      {
+        "comment": "",
+        "key": "Measurement Time",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 3114
+        }
+      },
+      {
+        "comment": "",
+        "key": "%llds / 15s",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 3122
+        }
+      },
+      {
+        "comment": "",
+        "key": "of 15 seconds",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 3127
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 3167
+        }
+      },
+      {
+        "comment": "",
+        "key": "Initializing...",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 3179
+        }
+      },
+      {
+        "comment": "",
+        "key": "Measuring...",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 3187
+        }
+      },
+      {
+        "comment": "",
+        "key": "Almost done...",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 3195
+        }
+      },
+      {
+        "comment": "",
+        "key": "Complete!",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 3203
+        }
+      }
+    ]
+  },
+  "version": 1
+}

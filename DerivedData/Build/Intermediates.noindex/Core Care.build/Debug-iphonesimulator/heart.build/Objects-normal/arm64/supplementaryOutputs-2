@@ -1,0 +1,23 @@
+{
+  "/Users/sail/Desktop/Corecare_iOS/Core Care/BPView.swift" : {
+    "const-values" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/BPView.swiftconstvalues",
+    "dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/BPView.d",
+    "diagnostics" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/BPView.dia",
+    "object" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/BPView.o",
+    "swift-dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/BPView.swiftdeps"
+  },
+  "/Users/sail/Desktop/Corecare_iOS/Core Care/ForgotPasswordView.swift" : {
+    "const-values" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/ForgotPasswordView.swiftconstvalues",
+    "dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/ForgotPasswordView.d",
+    "diagnostics" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/ForgotPasswordView.dia",
+    "object" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/ForgotPasswordView.o",
+    "swift-dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/ForgotPasswordView.swiftdeps"
+  },
+  "/Users/sail/Desktop/Corecare_iOS/Core Care/LogoutView.swift" : {
+    "const-values" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/LogoutView.swiftconstvalues",
+    "dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/LogoutView.d",
+    "diagnostics" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/LogoutView.dia",
+    "object" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/LogoutView.o",
+    "swift-dependencies" : "/Users/sail/Desktop/Corecare_iOS/DerivedData/Build/Intermediates.noindex/Core Care.build/Debug-iphonesimulator/heart.build/Objects-normal/arm64/LogoutView.swiftdeps"
+  }
+}

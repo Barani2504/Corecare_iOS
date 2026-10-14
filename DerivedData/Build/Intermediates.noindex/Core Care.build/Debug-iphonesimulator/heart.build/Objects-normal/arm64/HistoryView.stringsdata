@@ -1,0 +1,688 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/HistoryView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Error",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 177
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 178
+        }
+      },
+      {
+        "comment": "",
+        "key": "Retry",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 179
+        }
+      },
+      {
+        "comment": "",
+        "key": "Health Dashboard",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 399
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cardiac Analytics",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 404
+        }
+      },
+      {
+        "comment": "",
+        "key": "Detailed Report",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 573
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 601
+        }
+      },
+      {
+        "comment": "",
+        "key": "Time Period",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 627
+        }
+      },
+      {
+        "comment": "",
+        "key": "Loading cardiac insights...",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 704
+        }
+      },
+      {
+        "comment": "",
+        "key": "Analyzing your health data",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 708
+        }
+      },
+      {
+        "comment": "",
+        "key": "Analyzing cardiac data...",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 996
+        }
+      },
+      {
+        "comment": "",
+        "key": "Please wait while we process your health insights",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1000
+        }
+      },
+      {
+        "comment": "",
+        "key": "Begin Your Health Journey",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1055
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start tracking your cardiac health to unlock personalized insights, comprehensive analytics, and professional medical reports.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1060
+        }
+      },
+      {
+        "comment": "",
+        "key": "Go to Home Page and Measure Your heart beat and visit here",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1097
+        }
+      },
+      {
+        "comment": "",
+        "key": "Take First Measurement",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1077
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cardiac Risk Assessment",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1163
+        }
+      },
+      {
+        "comment": "",
+        "key": "Score:",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 1169
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 1172
+        }
+      },
+      {
+        "comment": "",
+        "key": "Contributing Factors",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1198
+        }
+      },
+      {
+        "comment": "",
+        "key": "Health Metrics Overview",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 1294
+        }
+      },
+      {
+        "comment": "",
+        "key": "Health Trends",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1444
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scroll to explore",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1456
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 1483
+        }
+      },
+      {
+        "comment": "",
+        "key": "BPM",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 1484
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 1496
+        }
+      },
+      {
+        "comment": "",
+        "key": "BPM",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 1497
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 1508
+        }
+      },
+      {
+        "comment": "",
+        "key": "BPM",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 1509
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 50,
+          "startingLine": 1539
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 1565
+        }
+      },
+      {
+        "comment": "",
+        "key": "Pressure",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 1566
+        }
+      },
+      {
+        "comment": "",
+        "key": "Type",
+        "location": {
+          "startingColumn": 60,
+          "startingLine": 1567
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 1574
+        }
+      },
+      {
+        "comment": "",
+        "key": "Pressure",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 1575
+        }
+      },
+      {
+        "comment": "",
+        "key": "Type",
+        "location": {
+          "startingColumn": 60,
+          "startingLine": 1576
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 1583
+        }
+      },
+      {
+        "comment": "",
+        "key": "Pressure",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 1584
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 1591
+        }
+      },
+      {
+        "comment": "",
+        "key": "Pressure",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 1592
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 1622
+        }
+      },
+      {
+        "comment": "",
+        "key": "Systolic",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1640
+        }
+      },
+      {
+        "comment": "",
+        "key": "Diastolic",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1649
+        }
+      },
+      {
+        "comment": "",
+        "key": "Swipe to view all data points",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1735
+        }
+      },
+      {
+        "comment": "",
+        "key": "No trend data available",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 1789
+        }
+      },
+      {
+        "comment": "",
+        "key": "Take more measurements to see your health trends",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 1793
+        }
+      },
+      {
+        "comment": "",
+        "key": "Medical Report",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2041
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cardiac Health Report",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1817
+        }
+      },
+      {
+        "comment": "",
+        "key": "Generated on %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1821
+        }
+      },
+      {
+        "comment": "",
+        "key": "Health Summary",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 1832
+        }
+      },
+      {
+        "comment": "",
+        "key": "About Risk Assessment",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1837
+        }
+      },
+      {
+        "comment": "",
+        "key": "Risk scores are calculated based on cardiovascular risk assessment guidelines from the Framingham Heart Study.",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1841
+        }
+      },
+      {
+        "comment": "",
+        "key": "View Framingham Risk Score Documentation",
+        "location": {
+          "startingColumn": 50,
+          "startingLine": 1849
+        }
+      },
+      {
+        "comment": "",
+        "key": "Risk Assessment",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 1927
+        }
+      },
+      {
+        "comment": "",
+        "key": "Risk Level:",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1933
+        }
+      },
+      {
+        "comment": "",
+        "key": "Risk Score:",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1948
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1951
+        }
+      },
+      {
+        "comment": "",
+        "key": "Risk Factors:",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 1958
+        }
+      },
+      {
+        "comment": "",
+        "key": "Recommendations:",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 1979
+        }
+      },
+      {
+        "comment": "",
+        "key": "Daily Measurements",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 2011
+        }
+      },
+      {
+        "comment": "",
+        "key": "This report is for informational purposes only and should not replace professional medical advice.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2026
+        }
+      },
+      {
+        "comment": "",
+        "key": "Consult with your healthcare provider for proper medical evaluation.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2031
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 2045
+        }
+      },
+      {
+        "comment": "",
+        "key": "Heart Rate",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2146
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld BPM",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2149
+        }
+      },
+      {
+        "comment": "",
+        "key": "Blood Pressure",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2157
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld/%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2160
+        }
+      },
+      {
+        "comment": "",
+        "key": "Measurements",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2168
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2171
+        }
+      },
+      {
+        "comment": "",
+        "key": "HRV:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2179
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export Status",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 2535
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export Data",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2522
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export Health Data",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2226
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export your cardiac health data as a professional PDF report that can be shared with healthcare providers.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2230
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export Options",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 2242
+        }
+      },
+      {
+        "comment": "",
+        "key": "Choose your preferred format",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 2255
+        }
+      },
+      {
+        "comment": "",
+        "key": "Overall Selected Report optimized for healthcare professionals",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 2345
+        }
+      },
+      {
+        "comment": "",
+        "key": "Professional PDF Report",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 2337
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ready",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 2370
+        }
+      },
+      {
+        "comment": "",
+        "key": "Data Summary",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2467
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your data will be exported securely as a PDF report that can be shared with healthcare providers or saved for personal records.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 2512
+        }
+      },
+      {
+        "comment": "",
+        "key": "Exporting...",
+        "location": {
+          "startingColumn": 52,
+          "startingLine": 2498
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export PDF Report",
+        "location": {
+          "startingColumn": 69,
+          "startingLine": 2498
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 2526
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 2536
+        }
+      }
+    ]
+  },
+  "version": 1
+}

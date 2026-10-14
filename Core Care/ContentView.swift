@@ -11,16 +11,8 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            // Animated background gradient
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color.white,
-                    Color.blue.opacity(0.05),
-                    Color.cyan.opacity(0.1)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            // Adaptive background
+            LinearGradient.appSplash
             .ignoresSafeArea()
             
             // Floating particles effect
@@ -73,6 +65,10 @@ struct ContentView: View {
 
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .animation(.spring(response: 0.8, dampingFraction: 0.7), value: currentView)
         .onAppear {
             withAnimation(.spring(response: 1.0, dampingFraction: 0.6)) {
@@ -304,9 +300,12 @@ struct ContentView: View {
                         .frame(minHeight: max(geometry.safeAreaInsets.bottom + 20, 40))
                 }
                 .frame(minHeight: geometry.size.height)
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
     }
     
     // MARK: - Dynamic Sizing Functions

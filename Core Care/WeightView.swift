@@ -42,37 +42,39 @@ struct WeightView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                if goToHome {
-                    HomePageView(userId: currentUserId)
-                        .transition(.asymmetric(
-                            insertion: .scale.combined(with: .opacity),
-                            removal: .scale.combined(with: .opacity)
-                        ))
-                } else {
-                    mainContent
-                        .transition(.asymmetric(
-                            insertion: .scale.combined(with: .opacity),
-                            removal: .scale.combined(with: .opacity)
-                        ))
-                }
+        ZStack {
+            if goToHome {
+                HomePageView(userId: currentUserId)
+                    .transition(.asymmetric(
+                        insertion: .scale.combined(with: .opacity),
+                        removal: .scale.combined(with: .opacity)
+                    ))
+            } else {
+                mainContent
+                    .transition(.asymmetric(
+                        insertion: .scale.combined(with: .opacity),
+                        removal: .scale.combined(with: .opacity)
+                    ))
+            }
 
-                if isLoading {
-                    ModernLoadingOverlay()
-                }
+            if isLoading {
+                ModernLoadingOverlay()
             }
-            .animation(.spring(response: 0.6, dampingFraction: 0.8), value: goToHome)
-            .alert("Success", isPresented: $showSuccessMessage) {
-                Button("Continue", role: .cancel) {}
-            } message: {
-                Text("Your health data has been saved successfully!")
-            }
-            .alert("Error", isPresented: $showError) {
-                Button("OK", role: .cancel) {}
-            } message: {
-                Text(errorMessage)
-            }
+        }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
+        .animation(.spring(response: 0.6, dampingFraction: 0.8), value: goToHome)
+        .alert("Success", isPresented: $showSuccessMessage) {
+            Button("Continue", role: .cancel) {}
+        } message: {
+            Text("Your health data has been saved successfully!")
+        }
+        .alert("Error", isPresented: $showError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(errorMessage)
         }
         .environmentObject(userManager)
     }
@@ -80,18 +82,8 @@ struct WeightView: View {
     private var mainContent: some View {
         GeometryReader { geo in
             ZStack {
-                // Modern gradient background (compatible version)
-                LinearGradient(
-                    colors: [
-                        Color.white,
-                        Color.red.opacity(0.08),
-                        Color.pink.opacity(0.05),
-                        Color.orange.opacity(0.03),
-                        Color.white.opacity(0.9)
-                    ],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
+                // Adaptive background
+                Color.appBackground
                 .ignoresSafeArea()
                 
                 // Enhanced background pattern
@@ -137,9 +129,14 @@ struct WeightView: View {
                 }
                 .animation(.easeInOut(duration: 4).repeatForever(autoreverses: true), value: floatingOffset)
 
-                ScrollView(showsIndicators: false) {
-                    LazyVStack(spacing: geo.size.height * 0.02) {
-                        headerView(geo: geo)
+                VStack(spacing: 0) {
+                    headerView(geo: geo)
+                        .padding(.horizontal, 20)
+                        .padding(.top, max(geo.safeAreaInsets.top, 44) + 8)
+                        .padding(.bottom, 12)
+
+                    ScrollView(showsIndicators: false) {
+                        LazyVStack(spacing: geo.size.height * 0.02) {
                         
                         // Glassmorphism main card with neumorphism elements
                         ZStack {
@@ -194,10 +191,12 @@ struct WeightView: View {
                             modernSuggestionsPanel(bmi: bmi, geo: geo)
                         }
 
-                        Spacer(minLength: geo.size.height * 0.1)
+                        Spacer(minLength: max(geo.safeAreaInsets.bottom, 20) + 20)
                     }
                     .frame(width: geo.size.width)
+                    .padding(.top, 8)
                 }
+            }
             }
         }
         .onAppear {
@@ -212,41 +211,59 @@ struct WeightView: View {
     // MARK: Modern Header with Floating Elements (Updated - corrected button order)
     // MARK: Modern Header with Floating Elements (Updated - proper left-right positioning)
     private func headerView(geo: GeometryProxy) -> some View {
-        ZStack {
-            HStack {
-                // Back button: LEFTMOST position
-                Button {
-                    withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
-                        goToHome = true
-                    }
-                } label: {
-                    ZStack {
-                        Circle()
-                            .fill(.ultraThinMaterial)
-                            .frame(width: 50, height: 50)
-                            .overlay(
-                                Circle()
-                                    .stroke(Color.white.opacity(0.5), lineWidth: 1)
-                            )
-                            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
-                            .shadow(color: .white.opacity(0.9), radius: 1, x: 0, y: -1)
-                        
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 18, weight: .semibold))
-                            .foregroundStyle(
-                                LinearGradient(
-                                    colors: [.primary, .secondary],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                    }
+        HStack(spacing: 12) {
+            // Back button: LEFTMOST position
+            Button {
+                withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                    goToHome = true
                 }
-                .buttonStyle(ModernButtonStyle())
+            } label: {
+                ZStack {
+                    Circle()
+                        .fill(.ultraThinMaterial)
+                        .frame(width: 44, height: 44)
+                        .overlay(
+                            Circle()
+                                .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                        )
+                        .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                    
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(.primary)
+                }
+            }
+            .buttonStyle(ModernButtonStyle())
+            
+            Spacer()
+            
+            VStack(spacing: 4) {
+                Text("Health Metrics")
+                    .font(.system(size: min(geo.size.width * 0.06, 22), weight: .black, design: .rounded))
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [.red, .pink, .orange, .red],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
                 
-                Spacer() // Push everything to the edges
-                
-                // Conditionally show reset button in the center-right area
+                HStack(spacing: 6) {
+                    Circle()
+                        .fill(dataSaved ? .green : .orange)
+                        .frame(width: 7, height: 7)
+                        .scaleEffect(pulseEffect ? 1.2 : 1.0)
+                        .animation(.easeInOut(duration: 1).repeatForever(), value: pulseEffect)
+                    
+                    Text(dataSaved ? "Data saved" : "Weight & BMI")
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(dataSaved ? .green : .secondary)
+                }
+            }
+            
+            Spacer()
+            
+            HStack(spacing: 8) {
                 if showSuggestions && dataSaved {
                     FloatingActionButton(
                         icon: "arrow.clockwise",
@@ -256,23 +273,21 @@ struct WeightView: View {
                     .transition(.scale.combined(with: .opacity))
                 }
                 
-                // Medical References button: RIGHTMOST position
                 Button(action: {
                     showMedicalReferences = true
                 }) {
                     ZStack {
                         Circle()
                             .fill(.ultraThinMaterial)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 44, height: 44)
                             .overlay(
                                 Circle()
                                     .stroke(Color.white.opacity(0.5), lineWidth: 1)
                             )
-                            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
-                            .shadow(color: .white.opacity(0.9), radius: 1, x: 0, y: -1)
+                            .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
                         
                         Image(systemName: "book.circle.fill")
-                            .font(.system(size: 22, weight: .semibold))
+                            .font(.system(size: 20, weight: .semibold))
                             .foregroundColor(.blue)
                     }
                 }
@@ -281,34 +296,7 @@ struct WeightView: View {
                     MedicalReferencesView()
                 }
             }
-            
-            VStack(spacing: 8) {
-                Text("Health Metrics")
-                    .font(.system(size: geo.size.width * 0.075, weight: .black, design: .rounded))
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: [.red, .pink, .orange, .red],
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    )
-                    .shadow(color: .red.opacity(0.3), radius: 2, x: 0, y: 2)
-                
-                HStack(spacing: 6) {
-                    Circle()
-                        .fill(dataSaved ? .green : .orange)
-                        .frame(width: 8, height: 8)
-                        .scaleEffect(pulseEffect ? 1.2 : 1.0)
-                        .animation(.easeInOut(duration: 1).repeatForever(), value: pulseEffect)
-                    
-                    Text(dataSaved ? "Data saved successfully" : "Track your wellness journey")
-                        .font(.system(size: geo.size.width * 0.032, weight: .medium))
-                        .foregroundColor(dataSaved ? .green : .secondary)
-                }
-            }
         }
-        .padding(.horizontal, 24)
-        .padding(.top, geo.safeAreaInsets.top + 12)
         .onAppear {
             pulseEffect = true
         }

@@ -198,6 +198,10 @@ struct LoginView: View {
 
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .animation(.spring(response: 0.6, dampingFraction: 0.8), value: navigateTo)
         .id(navigateTo) // Forces full view update
     }
@@ -205,16 +209,8 @@ struct LoginView: View {
     var mainLoginView: some View {
         GeometryReader { geometry in
             ZStack {
-                // Enhanced Background with Gradient
-                LinearGradient(
-                    gradient: Gradient(colors: [
-                        Color("coreblue").opacity(0.05),
-                        Color.white,
-                        Color("coreblue").opacity(0.03)
-                    ]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
+                // Adaptive background
+                LinearGradient.appSplash
                 .ignoresSafeArea()
                 
                 // Enhanced Logo with subtle animation
@@ -254,7 +250,7 @@ struct LoginView: View {
                             Spacer()
                         }
                         .padding(.horizontal, 24)
-                        .padding(.top, 60)
+                        .padding(.top, max(geometry.safeAreaInsets.top, 44) + 8)
                         
                         // Enhanced Header Section
                         VStack(spacing: 12) {
@@ -294,9 +290,9 @@ struct LoginView: View {
                                         )
                                         .background(
                                             RoundedRectangle(cornerRadius: 16)
-                                                .fill(Color.white)
+                                                .fill(Color.cardBackground)
                                                 .shadow(
-                                                    color: emailFocused ? Color("coreblue").opacity(0.1) : Color.black.opacity(0.02),
+                                                    color: emailFocused ? Color.appAccent.opacity(0.15) : Color.appSeparator.opacity(0.3),
                                                     radius: emailFocused ? 8 : 2,
                                                     x: 0,
                                                     y: emailFocused ? 4 : 1
@@ -343,9 +339,9 @@ struct LoginView: View {
                                         )
                                         .background(
                                             RoundedRectangle(cornerRadius: 16)
-                                                .fill(Color.white)
+                                                .fill(Color.cardBackground)
                                                 .shadow(
-                                                    color: passwordFocused ? Color("coreblue").opacity(0.1) : Color.black.opacity(0.02),
+                                                    color: passwordFocused ? Color.appAccent.opacity(0.15) : Color.appSeparator.opacity(0.3),
                                                     radius: passwordFocused ? 8 : 2,
                                                     x: 0,
                                                     y: passwordFocused ? 4 : 1
@@ -545,7 +541,7 @@ struct LoginView: View {
                                         .stroke(Color("coreblue"), lineWidth: 2)
                                         .background(
                                             RoundedRectangle(cornerRadius: 16)
-                                                .fill(Color.white)
+                                                .fill(Color.cardBackground)
                                         )
                                 )
                                 .shadow(
@@ -558,12 +554,16 @@ struct LoginView: View {
                             .padding(.horizontal, 24)
                         }
                         
-                        Spacer(minLength: 40)
+                        Spacer(minLength: max(geometry.safeAreaInsets.bottom, 20) + 20)
                     }
                 }
                 .frame(width: geometry.size.width, alignment: .topLeading)
             }
+            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             // Dismiss keyboard when tapping outside

@@ -1,0 +1,248 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/BloodSugarView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Error",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 218
+        }
+      },
+      {
+        "comment": "",
+        "key": "Retry",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 219
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 220
+        }
+      },
+      {
+        "comment": "",
+        "key": "Back",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 518
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mood & Wellness",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 581
+        }
+      },
+      {
+        "comment": "",
+        "key": "Track your mental health",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 587
+        }
+      },
+      {
+        "comment": "",
+        "key": "Updated %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 599
+        }
+      },
+      {
+        "comment": "",
+        "key": "Loading your wellness data...",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 679
+        }
+      },
+      {
+        "comment": "",
+        "key": "Please wait while we restore your information",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 683
+        }
+      },
+      {
+        "comment": "",
+        "key": "How are you feeling?",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 751
+        }
+      },
+      {
+        "comment": "",
+        "key": "Select your current emotional state",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 755
+        }
+      },
+      {
+        "comment": "",
+        "key": "Physical Symptoms",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 900
+        }
+      },
+      {
+        "comment": "",
+        "key": "Select any symptoms you're experiencing",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 904
+        }
+      },
+      {
+        "comment": "",
+        "key": "Correlated with mood data",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1143
+        }
+      },
+      {
+        "comment": "",
+        "key": "Heart Rate",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1123
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1133
+        }
+      },
+      {
+        "comment": "",
+        "key": "BPM",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1138
+        }
+      },
+      {
+        "comment": "",
+        "key": "Trend",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1159
+        }
+      },
+      {
+        "comment": "",
+        "key": "Context Notes",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1224
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add any relevant context (optional)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1228
+        }
+      },
+      {
+        "comment": "",
+        "key": "What's happening today? Any triggers or events?",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 1238
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld/300",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1258
+        }
+      },
+      {
+        "comment": "",
+        "key": "Wellness Insights",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1352
+        }
+      },
+      {
+        "comment": "",
+        "key": "Automatically generated based on your selections",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1356
+        }
+      },
+      {
+        "comment": "",
+        "key": "Select a mood or symptoms",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1404
+        }
+      },
+      {
+        "comment": "",
+        "key": "Insights will appear automatically based on your selections",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1408
+        }
+      },
+      {
+        "comment": "",
+        "key": "Saving Entry...",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1581
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save Wellness Entry",
+        "location": {
+          "startingColumn": 58,
+          "startingLine": 1581
+        }
+      },
+      {
+        "comment": "",
+        "key": "Entry Saved!",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1908
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your mood and wellness data has been recorded",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1912
+        }
+      }
+    ]
+  },
+  "version": 1
+}

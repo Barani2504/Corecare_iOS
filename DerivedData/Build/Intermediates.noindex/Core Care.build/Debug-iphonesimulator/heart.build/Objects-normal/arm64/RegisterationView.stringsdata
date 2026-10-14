@@ -1,0 +1,152 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/RegisterationView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Back",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 142
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create Account",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 161
+        }
+      },
+      {
+        "comment": "",
+        "key": "Join CoreCare for personalized healthcare",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 166
+        }
+      },
+      {
+        "comment": "",
+        "key": "Email or mobile number",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 182
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter email or phone",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 210
+        }
+      },
+      {
+        "comment": "",
+        "key": "Password",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 232
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter password",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 262
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter password",
+        "location": {
+          "startingColumn": 61,
+          "startingLine": 269
+        }
+      },
+      {
+        "comment": "",
+        "key": "Re-enter the Password",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 336
+        }
+      },
+      {
+        "comment": "",
+        "key": "Confirm password",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 368
+        }
+      },
+      {
+        "comment": "",
+        "key": "Confirm password",
+        "location": {
+          "startingColumn": 61,
+          "startingLine": 374
+        }
+      },
+      {
+        "comment": "",
+        "key": "Creating your account...",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 456
+        }
+      },
+      {
+        "comment": "",
+        "key": "Creating Account...",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 487
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sign up",
+        "location": {
+          "startingColumn": 78,
+          "startingLine": 487
+        }
+      },
+      {
+        "comment": "",
+        "key": "OR",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 525
+        }
+      },
+      {
+        "comment": "",
+        "key": "Already Have an Account?",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 542
+        }
+      },
+      {
+        "comment": "",
+        "key": "Log in",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 549
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sign In Instead",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 563
+        }
+      }
+    ]
+  },
+  "version": 1
+}

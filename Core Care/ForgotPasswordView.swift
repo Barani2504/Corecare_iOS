@@ -33,6 +33,10 @@ struct ForgotPasswordView: View {
 
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .animation(.easeInOut(duration: 0.5), value: showLoginView)
         .alert("Message", isPresented: $showingAlert) {
             Button("OK", role: .cancel) {
@@ -47,15 +51,8 @@ struct ForgotPasswordView: View {
     var forgotFormView: some View {
         GeometryReader { geo in
             ZStack {
-                // Enhanced gradient background
-                LinearGradient(
-                    gradient: Gradient(colors: [
-                        Color(hex: "#F8FAFC"),
-                        Color(hex: "#E2E8F0")
-                    ]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
+                // Adaptive background
+                LinearGradient.appSplash
                 .ignoresSafeArea()
                 
                 // Subtle background pattern
@@ -68,27 +65,53 @@ struct ForgotPasswordView: View {
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
+                        // Back Button
+                        HStack {
+                            Button(action: {
+                                withAnimation { showLoginView = true }
+                            }) {
+                                HStack(spacing: 6) {
+                                    Image(systemName: "chevron.left")
+                                        .font(.title3)
+                                        .fontWeight(.medium)
+                                    Text("Back")
+                                        .font(.subheadline)
+                                        .fontWeight(.medium)
+                                }
+                                .foregroundColor(Color("bluefont"))
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color("bluefont").opacity(0.1))
+                                )
+                            }
+                            Spacer()
+                        }
+                        .padding(.horizontal, 24)
+                        .padding(.top, max(geo.safeAreaInsets.top, 44) + 8)
+
                         // Enhanced header section
                         VStack(alignment: .leading, spacing: 12) {
                             HStack {
                                 Image(systemName: "lock.shield")
                                     .font(.system(size: 28, weight: .medium))
-                                    .foregroundColor(Color(hex: "#194A8C"))
+                                    .foregroundColor(Color("bluefont"))
                                 
                                 Text("Forgot Password")
                                     .font(.custom("Iceland", size: 32))
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color(hex: "#194A8C"))
+                                    .foregroundColor(Color("bluefont"))
                             }
                             
                             Text("Enter your mobile number or email to reset your password")
                                 .font(.custom("Inter", size: 18))
-                                .foregroundColor(Color(hex: "#64748B"))
+                                .foregroundColor(Color.textSecondary)
                                 .lineLimit(nil)
                                 .fixedSize(horizontal: false, vertical: true)
                         }
-                        .padding(.horizontal, 30)
-                        .padding(.top, 40)
+                        .padding(.horizontal, 24)
+                        .padding(.top, 16)
                         
                         // Enhanced form card
                         VStack(alignment: .leading, spacing: 28) {
@@ -97,29 +120,29 @@ struct ForgotPasswordView: View {
                                 HStack {
                                     Image(systemName: "envelope.fill")
                                         .font(.system(size: 16))
-                                        .foregroundColor(Color(hex: "#194A8C"))
+                                        .foregroundColor(Color("bluefont"))
                                     
                                     Text("Email or Phone")
                                         .font(.custom("Inter", size: 16))
                                         .fontWeight(.medium)
-                                        .foregroundColor(Color(hex: "#1E293B"))
+                                        .foregroundColor(Color.textPrimary)
                                 }
                                 
                                 TextField("Enter your email or phone number", text: $inputText)
                                     .padding(16)
-                                    .background(Color.white)
+                                    .background(Color.cardBackground)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 12)
                                             .stroke(
-                                                inputText.isEmpty ? Color(hex: "#E2E8F0") : Color(hex: "#194A8C"),
+                                                inputText.isEmpty ? Color.appSeparator : Color("bluefont"),
                                                 lineWidth: inputText.isEmpty ? 1 : 2
                                             )
                                     )
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color.textPrimary)
                                     .font(.custom("Inter", size: 16))
                                     .textInputAutocapitalization(.never)
                                     .autocorrectionDisabled(true)
-                                    .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
+                                    .shadow(color: Color.cardShadow, radius: 2, x: 0, y: 1)
                             }
                             
                             // Enhanced verify button
@@ -147,15 +170,15 @@ struct ForgotPasswordView: View {
                                 .background(
                                     LinearGradient(
                                         gradient: Gradient(colors: [
-                                            Color(hex: "#194A8C"),
-                                            Color(hex: "#1E40AF")
+                                            Color("bluefont"),
+                                            Color.appAccent
                                         ]),
                                         startPoint: .leading,
                                         endPoint: .trailing
                                     )
                                 )
                                 .cornerRadius(12)
-                                .shadow(color: Color(hex: "#194A8C").opacity(0.3), radius: 8, x: 0, y: 4)
+                                .shadow(color: Color.appAccent.opacity(0.3), radius: 8, x: 0, y: 4)
                                 .scaleEffect(isLoading ? 0.95 : 1.0)
                                 .animation(.easeInOut(duration: 0.1), value: isLoading)
                             }
@@ -180,54 +203,58 @@ struct ForgotPasswordView: View {
                                         HStack {
                                             Image(systemName: "key.fill")
                                                 .font(.system(size: 16))
-                                                .foregroundColor(Color(hex: "#194A8C"))
+                                                .foregroundColor(Color("bluefont"))
                                             
                                             Text("New Password")
                                                 .font(.custom("Inter", size: 16))
                                                 .fontWeight(.medium)
+                                                .foregroundColor(Color.textPrimary)
                                         }
                                         
                                         SecureField("Create a strong password", text: $newPassword)
                                             .padding(16)
-                                            .background(Color.white)
+                                            .background(Color.cardBackground)
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 12)
                                                     .stroke(
-                                                        newPassword.isEmpty ? Color(hex: "#E2E8F0") : Color(hex: "#194A8C"),
+                                                        newPassword.isEmpty ? Color.appSeparator : Color("bluefont"),
                                                         lineWidth: newPassword.isEmpty ? 1 : 2
                                                     )
                                             )
+                                            .foregroundColor(Color.textPrimary)
                                             .textInputAutocapitalization(.never)
                                             .autocorrectionDisabled(true)
-                                            .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
+                                            .shadow(color: Color.cardShadow, radius: 2, x: 0, y: 1)
                                     }
                                     
                                     VStack(alignment: .leading, spacing: 12) {
                                         HStack {
                                             Image(systemName: "lock.fill")
                                                 .font(.system(size: 16))
-                                                .foregroundColor(Color(hex: "#194A8C"))
+                                                .foregroundColor(Color("bluefont"))
                                             
                                             Text("Confirm Password")
                                                 .font(.custom("Inter", size: 16))
                                                 .fontWeight(.medium)
+                                                .foregroundColor(Color.textPrimary)
                                         }
                                         
                                         SecureField("Re-enter your password", text: $confirmPassword)
                                             .padding(16)
-                                            .background(Color.white)
+                                            .background(Color.cardBackground)
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 12)
                                                     .stroke(
-                                                        confirmPassword.isEmpty ? Color(hex: "#E2E8F0") :
+                                                        confirmPassword.isEmpty ? Color.appSeparator :
                                                         (newPassword == confirmPassword && !confirmPassword.isEmpty) ?
                                                         Color.green : Color.red,
                                                         lineWidth: confirmPassword.isEmpty ? 1 : 2
                                                     )
                                             )
+                                            .foregroundColor(Color.textPrimary)
                                             .textInputAutocapitalization(.never)
                                             .autocorrectionDisabled(true)
-                                            .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
+                                            .shadow(color: Color.cardShadow, radius: 2, x: 0, y: 1)
                                     }
                                     
                                     // Password strength indicator
@@ -236,7 +263,7 @@ struct ForgotPasswordView: View {
                                             Text("Password Requirements:")
                                                 .font(.custom("Inter", size: 14))
                                                 .fontWeight(.medium)
-                                                .foregroundColor(Color(hex: "#64748B"))
+                                                .foregroundColor(Color.textSecondary)
                                             
                                             VStack(alignment: .leading, spacing: 4) {
                                                 PasswordRequirementRow(
@@ -300,18 +327,18 @@ struct ForgotPasswordView: View {
                                 HStack(spacing: 8) {
                                     Text("Remember your password?")
                                         .font(.custom("Inter", size: 15))
-                                        .foregroundColor(Color(hex: "#64748B"))
+                                        .foregroundColor(Color.textSecondary)
                                     
                                     Button(action: { withAnimation { showLoginView = true } }) {
                                         HStack(spacing: 4) {
                                             Text("Sign In")
                                                 .font(.custom("Inter", size: 15))
                                                 .fontWeight(.semibold)
-                                                .foregroundColor(Color(hex: "#194A8C"))
+                                                .foregroundColor(Color("bluefont"))
                                             
                                             Image(systemName: "arrow.right")
                                                 .font(.system(size: 12, weight: .medium))
-                                                .foregroundColor(Color(hex: "#194A8C"))
+                                                .foregroundColor(Color("bluefont"))
                                         }
                                     }
                                 }
@@ -322,17 +349,25 @@ struct ForgotPasswordView: View {
                         .padding(28)
                         .background(
                             RoundedRectangle(cornerRadius: 20)
-                                .fill(Color.white)
-                                .shadow(color: Color.black.opacity(0.08), radius: 20, x: 0, y: 8)
+                                .fill(Color.cardBackground)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.cardBorder, lineWidth: 1)
+                                )
+                                .shadow(color: Color.cardShadow, radius: 20, x: 0, y: 8)
                         )
                         .padding(.top, 32)
-                        .padding(.horizontal, 20)
                     }
-                    .padding(.bottom, 40)
+                    .padding(.bottom, max(geo.safeAreaInsets.bottom, 20) + 24)
                 }
-                .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
+                .frame(width: geo.size.width, alignment: .topLeading)
             }
+            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
     }
     
     // MARK: - Models
@@ -463,11 +498,11 @@ struct PasswordRequirementRow: View {
         HStack(spacing: 8) {
             Image(systemName: isValid ? "checkmark.circle.fill" : "circle")
                 .font(.system(size: 14))
-                .foregroundColor(isValid ? .green : Color(hex: "#94A3B8"))
+                .foregroundColor(isValid ? .green : Color.textTertiary)
             
             Text(text)
                 .font(.custom("Inter", size: 13))
-                .foregroundColor(isValid ? .green : Color(hex: "#64748B"))
+                .foregroundColor(isValid ? .green : Color.textSecondary)
         }
     }
 }

@@ -1,0 +1,56 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "CoreCare",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 127
+        }
+      },
+      {
+        "comment": "",
+        "key": "Self Monitoring and Cardiac Care App",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "Login Button",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 220
+        }
+      },
+      {
+        "comment": "",
+        "key": "Register Button",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 274
+        }
+      },
+      {
+        "comment": "",
+        "key": "Login",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 181
+        }
+      },
+      {
+        "comment": "",
+        "key": "Register",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 234
+        }
+      }
+    ]
+  },
+  "version": 1
+}

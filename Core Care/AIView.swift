@@ -99,6 +99,10 @@ struct AIView: View {
                     .zIndex(1000)
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             validateUserAndStart()
             startAnimations()
@@ -120,7 +124,7 @@ struct AIView: View {
             VStack(spacing: 25) {
                 ZStack {
                     Circle()
-                        .fill(Color.white)
+                        .fill(Color.cardBackground)
                         .frame(width: 100, height: 100)
                         .shadow(color: .red.opacity(0.5), radius: 15)
                     Image(systemName: "exclamationmark.triangle.fill")
@@ -154,8 +158,8 @@ struct AIView: View {
                 .padding(25)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.white)
-                        .shadow(color: .black.opacity(0.1), radius: 10)
+                        .fill(Color.cardBackground)
+                        .shadow(color: Color.cardShadow, radius: 10)
                 )
                 
                 HStack(spacing: 20) {
@@ -228,37 +232,54 @@ struct AIView: View {
 
     // MARK: - Enhanced Main Content
     var mainContent: some View {
-        ScrollView {
-            VStack(spacing: 30) {
-                // Enhanced Header
+        GeometryReader { geo in
+            let safeTop = max(geo.safeAreaInsets.top, 44)
+            let safeBottom = max(geo.safeAreaInsets.bottom, 20)
+
+            VStack(spacing: 0) {
+                // Enhanced Header pinned at top
                 enhancedHeaderSection
-                
-                // AI Health Score with advanced graphics
-                advancedHealthScoreSection
-                
-                // Enhanced Risk Assessment
-                enhancedRiskAssessmentSection
-                
-                // Advanced Vitals Display
-                advancedVitalsSection
-                
-                // Sophisticated AI Analysis
-                sophisticatedAiAnalysisSection
-                
-                // Dynamic Smart Recommendations
-                smartRecommendationsSection
-                
-                // Enhanced Action Buttons
-                enhancedActionButtonsSection
-                
-                // Advanced AI Insights
-                advancedAiInsightsSection
+                    .padding(.horizontal, 20)
+                    .padding(.top, safeTop + 8)
+                    .padding(.bottom, 12)
+                    .background(
+                        Color.white.opacity(0.85)
+                    )
+
+                ScrollView {
+                    VStack(spacing: 26) {
+                        // AI Health Score with advanced graphics
+                        advancedHealthScoreSection
+                        
+                        // Enhanced Risk Assessment
+                        enhancedRiskAssessmentSection
+                        
+                        // Advanced Vitals Display
+                        advancedVitalsSection
+                        
+                        // Sophisticated AI Analysis
+                        sophisticatedAiAnalysisSection
+                        
+                        // Dynamic Smart Recommendations
+                        smartRecommendationsSection
+                        
+                        // Enhanced Action Buttons
+                        enhancedActionButtonsSection
+                        
+                        // Advanced AI Insights
+                        advancedAiInsightsSection
+
+                        Spacer(minLength: safeBottom + 20)
+                    }
+                    .padding(.top, 12)
+                }
             }
-            .padding(.top, 15)
         }
         .navigationBarBackButtonHidden(true)
         .background(
             ZStack {
+                Color.appBackground
+                
                 // Animated gradient background
                 LinearGradient(
                     gradient: Gradient(colors: [
@@ -290,7 +311,23 @@ struct AIView: View {
     // MARK: - Enhanced UI Sections
     
     var enhancedHeaderSection: some View {
-        HStack(spacing: 15) {
+        HStack(spacing: 12) {
+            Button {
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                    toHome = true
+                }
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(.ultraThinMaterial)
+                        .frame(width: 44, height: 44)
+                    
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.primary)
+                }
+            }
+
             ZStack {
                 // Multi-layered icon design
                 Circle()
@@ -305,24 +342,24 @@ struct AIView: View {
                             endPoint: .bottomTrailing
                         )
                     )
-                    .frame(width: 70, height: 70)
-                    .shadow(color: .blue.opacity(0.4), radius: 10, x: 0, y: 5)
+                    .frame(width: 46, height: 46)
+                    .shadow(color: .blue.opacity(0.4), radius: 6, x: 0, y: 3)
                     .scaleEffect(pulseAnimation ? 1.05 : 1.0)
                     .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true), value: pulseAnimation)
                 
                 Circle()
                     .fill(Color.white.opacity(0.2))
-                    .frame(width: 60, height: 60)
+                    .frame(width: 38, height: 38)
                 
                 Image(systemName: "brain.head.profile.fill")
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: 18, weight: .bold))
                     .foregroundColor(.white)
                     .shadow(radius: 2)
             }
             
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Core Care Assistant")
-                    .font(.system(size: 24, weight: .black, design: .rounded))
+            VStack(alignment: .leading, spacing: 3) {
+                Text("Core Care AI")
+                    .font(.system(size: 19, weight: .black, design: .rounded))
                     .foregroundStyle(
                         LinearGradient(
                             gradient: Gradient(colors: [
@@ -336,31 +373,17 @@ struct AIView: View {
                     )
                     .shadow(color: .blue.opacity(0.3), radius: 2)
                 
-                HStack(spacing: 8) {
-                    ZStack {
-                        Capsule()
-                            .fill(isUsingStaticData ? Color.orange.opacity(0.2) : Color.green.opacity(0.2))
-                            .frame(height: 20)
-                        
-                        HStack(spacing: 4) {
-                            Circle()
-                                .fill(isUsingStaticData ? .orange : .green)
-                                .frame(width: 6, height: 6)
-                                .scaleEffect(pulseAnimation ? 1.3 : 1.0)
-                                .animation(.easeInOut(duration: 1).repeatForever(autoreverses: true), value: pulseAnimation)
-                            
-                            Text(isUsingStaticData ? "Demo Mode" : "Live Analysis")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundColor(isUsingStaticData ? .orange : .green)
-                        }
-                        .padding(.horizontal, 8)
-                    }
+                HStack(spacing: 6) {
+                    Circle()
+                        .fill(isUsingStaticData ? .orange : .green)
+                        .frame(width: 6, height: 6)
+                        .scaleEffect(pulseAnimation ? 1.3 : 1.0)
+                        .animation(.easeInOut(duration: 1).repeatForever(autoreverses: true), value: pulseAnimation)
                     
-                    Text("Core Assistant Active")
+                    Text(isUsingStaticData ? "Demo Mode" : "Live Analysis")
                         .font(.caption2)
-                        .foregroundColor(.gray)
-                        .italic()
+                        .fontWeight(.semibold)
+                        .foregroundColor(isUsingStaticData ? .orange : .green)
                 }
             }
             
@@ -368,7 +391,7 @@ struct AIView: View {
             
             // Enhanced Health Score Badge
             ZStack {
-                RoundedRectangle(cornerRadius: 18)
+                RoundedRectangle(cornerRadius: 14)
                     .fill(
                         LinearGradient(
                             colors: [
@@ -380,26 +403,23 @@ struct AIView: View {
                         )
                     )
                     .overlay(
-                        RoundedRectangle(cornerRadius: 18)
-                            .stroke(healthScoreColor.opacity(0.3), lineWidth: 2)
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(healthScoreColor.opacity(0.3), lineWidth: 1.5)
                     )
-                    .frame(width: 80, height: 65)
+                    .frame(width: 65, height: 44)
                 
-                VStack(spacing: 2) {
+                VStack(spacing: 1) {
                     Text("\(healthScore)")
-                        .font(.system(size: 20, weight: .black, design: .rounded))
+                        .font(.system(size: 17, weight: .black, design: .rounded))
                         .foregroundColor(healthScoreColor)
                     
                     Text("Score")
-                        .font(.caption2)
-                        .fontWeight(.medium)
+                        .font(.system(size: 10, weight: .medium))
                         .foregroundColor(.gray)
                 }
             }
-            .shadow(color: healthScoreColor.opacity(0.2), radius: 5, x: 0, y: 3)
+            .shadow(color: healthScoreColor.opacity(0.2), radius: 4, x: 0, y: 2)
         }
-        .padding(.horizontal, 25)
-        .padding(.top, 15)
     }
     
     var advancedHealthScoreSection: some View {
@@ -743,8 +763,8 @@ struct AIView: View {
         .background(
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.white)
-                    .shadow(color: .blue.opacity(0.1), radius: 8, x: 0, y: 4)
+                    .fill(Color.cardBackground)
+                    .shadow(color: Color.cardShadow, radius: 8, x: 0, y: 4)
                 
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(
@@ -1021,8 +1041,8 @@ struct AIView: View {
         .background(
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.white)
-                    .shadow(color: .purple.opacity(0.1), radius: 10, x: 0, y: 5)
+                    .fill(Color.cardBackground)
+                    .shadow(color: Color.cardShadow, radius: 10, x: 0, y: 5)
                 
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(
@@ -1856,8 +1876,8 @@ struct AdvancedRiskCard: View {
         .background(
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.white)
-                    .shadow(color: color.opacity(0.15), radius: 5, x: 0, y: 3)
+                    .fill(Color.cardBackground)
+                    .shadow(color: Color.cardShadow, radius: 5, x: 0, y: 3)
                 
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(color.opacity(0.2), lineWidth: 1.5)
@@ -1932,8 +1952,8 @@ struct AdvancedVitalCard: View {
         .background(
             ZStack {
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
-                    .shadow(color: color.opacity(0.1), radius: 4, x: 0, y: 2)
+                    .fill(Color.cardBackground)
+                    .shadow(color: Color.cardShadow, radius: 4, x: 0, y: 2)
                 
                 RoundedRectangle(cornerRadius: 14)
                     .stroke(color.opacity(0.2), lineWidth: 1)
@@ -2016,8 +2036,8 @@ struct AdvancedRecommendationCard: View {
         .background(
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.white)
-                    .shadow(color: recommendation.priority.color.opacity(0.1), radius: 5, x: 0, y: 3)
+                    .fill(Color.cardBackground)
+                    .shadow(color: Color.cardShadow, radius: 5, x: 0, y: 3)
                 
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(recommendation.priority.color.opacity(0.2), lineWidth: 1.5)

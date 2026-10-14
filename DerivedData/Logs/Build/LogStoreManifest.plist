@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>12</integer>
+	<key>logs</key>
+	<dict>
+		<key>2E8C14DA-D22C-4CB9-BBBF-CBC7D44C22A1</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>2E8C14DA-D22C-4CB9-BBBF-CBC7D44C22A1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Core Care project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>heart</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project Core Care with scheme heart and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>813564977.01926506</real>
+			<key>timeStoppedRecording</key>
+			<real>813564980.05012095</real>
+			<key>title</key>
+			<string>Building project Core Care with scheme heart and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>2E8C14DA-D22C-4CB9-BBBF-CBC7D44C22A1</string>
+		</dict>
+		<key>41E05C1E-B996-4718-8243-4BEEB8FD6DAB</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>41E05C1E-B996-4718-8243-4BEEB8FD6DAB.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>3</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Core Care project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>heart</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project Core Care with scheme heart and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>813564802.11279905</real>
+			<key>timeStoppedRecording</key>
+			<real>813564805.40935194</real>
+			<key>title</key>
+			<string>Building project Core Care with scheme heart and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>41E05C1E-B996-4718-8243-4BEEB8FD6DAB</string>
+		</dict>
+		<key>8D34841B-387A-4262-ADF5-5260DB298E8C</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>8D34841B-387A-4262-ADF5-5260DB298E8C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Core Care project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>heart</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project Core Care with scheme heart and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>813565034.30473197</real>
+			<key>timeStoppedRecording</key>
+			<real>813565037.90488398</real>
+			<key>title</key>
+			<string>Building project Core Care with scheme heart and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>8D34841B-387A-4262-ADF5-5260DB298E8C</string>
+		</dict>
+		<key>FAF588BF-E780-408E-B88D-285CA3E41EEA</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>FAF588BF-E780-408E-B88D-285CA3E41EEA.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Core Care project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>heart</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project Core Care with scheme heart and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>813564874.54663801</real>
+			<key>timeStoppedRecording</key>
+			<real>813564901.82076395</real>
+			<key>title</key>
+			<string>Building project Core Care with scheme heart and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>FAF588BF-E780-408E-B88D-285CA3E41EEA</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

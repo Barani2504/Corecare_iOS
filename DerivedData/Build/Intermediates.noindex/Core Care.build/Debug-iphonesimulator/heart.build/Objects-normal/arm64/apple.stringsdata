@@ -1,0 +1,200 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/apple.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Apple Health Analytics",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 197
+        }
+      },
+      {
+        "comment": "",
+        "key": "Real-time wellness insights",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 202
+        }
+      },
+      {
+        "comment": "",
+        "key": "Synced",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 224
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 331
+        }
+      },
+      {
+        "comment": "",
+        "key": "steps today",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 336
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% of daily goal",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 343
+        }
+      },
+      {
+        "comment": "",
+        "key": "Daily Goal: %lld steps",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 360
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld / %lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 366
+        }
+      },
+      {
+        "comment": "",
+        "key": "🌙",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 450
+        }
+      },
+      {
+        "comment": "",
+        "key": "Last Night",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 455
+        }
+      },
+      {
+        "comment": "",
+        "key": "WHO: 7-9 hours",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 489
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sleep Duration Range",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 505
+        }
+      },
+      {
+        "comment": "",
+        "key": "0h",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 559
+        }
+      },
+      {
+        "comment": "",
+        "key": "7-9h (Optimal)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 565
+        }
+      },
+      {
+        "comment": "",
+        "key": "12h",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 571
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scientific Recommendation",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 592
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scientific Recommendation",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 643
+        }
+      },
+      {
+        "comment": "",
+        "key": "Health Impact",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 673
+        }
+      },
+      {
+        "comment": "",
+        "key": "Daily Progress",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 719
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sleep Science",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 783
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tips for Better Sleep",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 850
+        }
+      },
+      {
+        "comment": "",
+        "key": "Evidence-Based Sources",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 898
+        }
+      },
+      {
+        "comment": "",
+        "key": "⚠️ Medical Disclaimer",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 932
+        }
+      },
+      {
+        "comment": "",
+        "key": "This app provides health insights based on scientific research. Always consult healthcare providers for medical concerns.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 936
+        }
+      }
+    ]
+  },
+  "version": 1
+}

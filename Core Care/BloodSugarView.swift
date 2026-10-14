@@ -13,13 +13,13 @@ enum MoodType: String, CaseIterable, Codable {
 
     var emoji: String {
         switch self {
-        case .veryHappy: return "😄"
-        case .happy: return "😊"
-        case .neutral: return "😐"
-        case .sad: return "😔"
-        case .verySad: return "😢"
-        case .anxious: return "😰"
-        case .stressed: return "😤"
+        case .veryHappy: return "\u{1F604}" // 😄
+        case .happy: return "\u{1F60A}"     // 😊
+        case .neutral: return "\u{1F610}"   // 😐
+        case .sad: return "\u{1F614}"       // 😔
+        case .verySad: return "\u{1F622}"   // 😢
+        case .anxious: return "\u{1F630}"   // 😰
+        case .stressed: return "\u{1F624}"  // 😤
         }
     }
 
@@ -58,6 +58,20 @@ enum SymptomType: String, CaseIterable, Codable {
         case .jointPain: return "figure.walk"
         case .muscleAches: return "figure.strengthtraining.traditional"
         case .sleepIssues: return "moon.zzz.fill"
+        }
+    }
+
+    var emoji: String {
+        switch self {
+        case .fatigue: return "\u{1F634}"          // 😴
+        case .shortnessOfBreath: return "\u{1FAC1}" // 🫁
+        case .palpitations: return "\u{1F493}"      // 💓
+        case .headache: return "\u{1F915}"          // 🤕
+        case .dizziness: return "\u{1F4AB}"         // 💫
+        case .chestPain: return "\u{1F494}"         // 💔
+        case .jointPain: return "\u{1F9B5}"         // 🦵
+        case .muscleAches: return "\u{1F4AA}"       // 💪
+        case .sleepIssues: return "\u{1F319}"       // 🌙
         }
     }
 
@@ -146,35 +160,35 @@ struct BloodSugarView: View {
         // Mood-based insights
         switch selectedMood {
         case .veryHappy:
-            insights.append(HealthInsight(icon: "sun.max.fill", title: "Positive Energy", description: "Great mood can boost immune system", color: .yellow, urgency: .positive))
+            insights.append(HealthInsight(icon: "sun.max.fill", emoji: "\u{1F604}", title: "Positive Energy", description: "Great mood can boost immune system", color: .yellow, urgency: .positive))
         case .happy:
-            insights.append(HealthInsight(icon: "heart.fill", title: "Good Vibes", description: "Positive mood supports heart health", color: .green, urgency: .positive))
+            insights.append(HealthInsight(icon: "heart.fill", emoji: "\u{1F60A}", title: "Good Vibes", description: "Positive mood supports heart health", color: .green, urgency: .positive))
         case .neutral:
             if !selectedSymptoms.isEmpty {
-                insights.append(HealthInsight(icon: "minus.circle", title: "Steady Mood", description: "Balanced mood while experiencing symptoms", color: .blue, urgency: .neutral))
+                insights.append(HealthInsight(icon: "minus.circle", emoji: "\u{1F610}", title: "Steady Mood", description: "Balanced mood while experiencing symptoms", color: .blue, urgency: .neutral))
             }
         case .sad:
-            insights.append(HealthInsight(icon: "cloud.rain.fill", title: "Low Mood Alert", description: "Consider gentle exercise or talking to someone", color: .gray, urgency: .moderate))
+            insights.append(HealthInsight(icon: "cloud.rain.fill", emoji: "\u{1F614}", title: "Low Mood Alert", description: "Consider gentle exercise or talking to someone", color: .gray, urgency: .moderate))
         case .verySad:
-            insights.append(HealthInsight(icon: "heart.slash.fill", title: "Mood Support Needed", description: "Reach out to friends or healthcare provider", color: .purple, urgency: .critical))
+            insights.append(HealthInsight(icon: "heart.slash.fill", emoji: "\u{1F622}", title: "Mood Support Needed", description: "Reach out to friends or healthcare provider", color: .purple, urgency: .critical))
         case .anxious:
-            insights.append(HealthInsight(icon: "bolt.fill", title: "Anxiety Alert", description: "Try breathing exercises or meditation", color: .orange, urgency: .moderate))
+            insights.append(HealthInsight(icon: "bolt.fill", emoji: "\u{1F630}", title: "Anxiety Alert", description: "Try breathing exercises or meditation", color: .orange, urgency: .moderate))
         case .stressed:
-            insights.append(HealthInsight(icon: "exclamationmark.triangle.fill", title: "Stress Management", description: "Consider relaxation techniques", color: .red, urgency: .critical))
+            insights.append(HealthInsight(icon: "exclamationmark.triangle.fill", emoji: "\u{1F624}", title: "Stress Management", description: "Consider relaxation techniques", color: .red, urgency: .critical))
         }
 
         // Symptom-based insights
         if selectedSymptoms.contains(.fatigue) {
-            insights.append(HealthInsight(icon: "bed.double.fill", title: "Rest Needed", description: "Fatigue may indicate need for better sleep", color: .indigo, urgency: .moderate))
+            insights.append(HealthInsight(icon: "bed.double.fill", emoji: "\u{1F634}", title: "Rest Needed", description: "Fatigue may indicate need for better sleep", color: .indigo, urgency: .moderate))
         }
         if selectedSymptoms.contains(.shortnessOfBreath) {
-            insights.append(HealthInsight(icon: "lungs.fill", title: "Breathing Concern", description: "Monitor closely, consider consulting doctor", color: .red, urgency: .critical))
+            insights.append(HealthInsight(icon: "lungs.fill", emoji: "\u{1FAC1}", title: "Breathing Concern", description: "Monitor closely, consider consulting doctor", color: .red, urgency: .critical))
         }
         if selectedSymptoms.contains(.palpitations) {
-            insights.append(HealthInsight(icon: "waveform.path.ecg", title: "Heart Rhythm", description: "Palpitations with mood changes worth tracking", color: .red, urgency: .critical))
+            insights.append(HealthInsight(icon: "waveform.path.ecg", emoji: "\u{1F493}", title: "Heart Rhythm", description: "Palpitations with mood changes worth tracking", color: .red, urgency: .critical))
         }
         if selectedSymptoms.contains(.headache) {
-            insights.append(HealthInsight(icon: "brain.head.profile", title: "Head Pain", description: "Consider hydration and rest", color: .purple, urgency: .moderate))
+            insights.append(HealthInsight(icon: "brain.head.profile", emoji: "\u{1F915}", title: "Head Pain", description: "Consider hydration and rest", color: .purple, urgency: .moderate))
         }
 
         return insights
@@ -193,7 +207,7 @@ struct BloodSugarView: View {
                             removal: .scale.combined(with: .opacity)
                         ))
                 } else {
-                    mainContent
+                    mainContent(geo: geo)
                         .transition(.asymmetric(
                             insertion: .scale.combined(with: .opacity),
                             removal: .scale.combined(with: .opacity)
@@ -210,6 +224,10 @@ struct BloodSugarView: View {
                 }
             }
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .animation(.easeInOut(duration: 0.5), value: toHome)
         .alert("Error", isPresented: $showError) {
             Button("Retry", action: loadInitialData)
@@ -276,17 +294,17 @@ struct BloodSugarView: View {
                 }
                 
                 if status.lowercased() == "success" {
-                    // Parse mood data
+                    // Parse mood data with case-insensitive fallback
                     if let moodString = jsonResponse["mood"] as? String,
-                       let mood = MoodType.allCases.first(where: { $0.rawValue == moodString }) {
+                       let mood = MoodType.allCases.first(where: { $0.rawValue.caseInsensitiveCompare(moodString) == .orderedSame }) {
                         self.selectedMood = mood
                         print("Loaded mood: \(moodString)")
                     }
                     
-                    // Parse symptoms data
+                    // Parse symptoms data with case-insensitive fallback
                     if let symptomsArray = jsonResponse["symptoms"] as? [String] {
                         let loadedSymptoms = symptomsArray.compactMap { symptomString in
-                            SymptomType.allCases.first(where: { $0.rawValue == symptomString })
+                            SymptomType.allCases.first(where: { $0.rawValue.caseInsensitiveCompare(symptomString) == .orderedSame })
                         }
                         self.selectedSymptoms = Set(loadedSymptoms)
                         print("Loaded symptoms: \(symptomsArray)")
@@ -426,179 +444,177 @@ struct BloodSugarView: View {
         }
     }
 
-    private var mainContent: some View {
-        ScrollView {
-            LazyVStack(spacing: 32) {
-                // Enhanced Header with glassmorphism effect
-                enhancedHeaderView
-                    .opacity(cardAppearance ? 1 : 0)
-                    .offset(y: cardAppearance ? 0 : -50)
-                    .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.1), value: cardAppearance)
+    private func mainContent(geo: GeometryProxy) -> some View {
+        let safeTop = max(geo.safeAreaInsets.top, 44)
+        let safeBottom = max(geo.safeAreaInsets.bottom, 20)
 
-                if isLoading {
-                    enhancedLoadingView
-                        .opacity(cardAppearance ? 1 : 0)
-                        .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.2), value: cardAppearance)
-                } else {
-                    // ENHANCED: All cards with staggered animations
-                    Group {
-                        // Mood Selection Card
-                        enhancedMoodCard
+        return VStack(spacing: 0) {
+            // Enhanced Header pinned at top with proper alignment
+            enhancedHeaderView(geo: geo)
+                .padding(.horizontal, 16)
+                .padding(.top, safeTop + 4)
+                .padding(.bottom, 12)
+                .background(
+                    Color(.systemBackground).opacity(0.92)
+                )
+
+            ScrollView {
+                LazyVStack(spacing: 24) {
+                    if isLoading {
+                        enhancedLoadingView
                             .opacity(cardAppearance ? 1 : 0)
-                            .offset(y: cardAppearance ? 0 : 30)
                             .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.2), value: cardAppearance)
+                    } else {
+                        // ENHANCED: All cards with staggered animations
+                        Group {
+                            // Mood Selection Card
+                            enhancedMoodCard
+                                .opacity(cardAppearance ? 1 : 0)
+                                .offset(y: cardAppearance ? 0 : 30)
+                                .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.2), value: cardAppearance)
 
-                        // Symptoms Selection Card - FIXED text display
-                        enhancedSymptomsCard
-                            .opacity(cardAppearance ? 1 : 0)
-                            .offset(y: cardAppearance ? 0 : 30)
-                            .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.3), value: cardAppearance)
+                            // Symptoms Selection Card - FIXED text display
+                            enhancedSymptomsCard
+                                .opacity(cardAppearance ? 1 : 0)
+                                .offset(y: cardAppearance ? 0 : 30)
+                                .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.3), value: cardAppearance)
 
-                        // Heart rate correlation card
-                        enhancedHeartRateCard
-                            .opacity(cardAppearance ? 1 : 0)
-                            .offset(y: cardAppearance ? 0 : 30)
-                            .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.4), value: cardAppearance)
+                            // Heart rate correlation card
+                            enhancedHeartRateCard
+                                .opacity(cardAppearance ? 1 : 0)
+                                .offset(y: cardAppearance ? 0 : 30)
+                                .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.4), value: cardAppearance)
 
-                        // Context Notes Card
-                        enhancedContextNotesCard
-                            .opacity(cardAppearance ? 1 : 0)
-                            .offset(y: cardAppearance ? 0 : 30)
-                            .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.5), value: cardAppearance)
+                            // Context Notes Card
+                            enhancedContextNotesCard
+                                .opacity(cardAppearance ? 1 : 0)
+                                .offset(y: cardAppearance ? 0 : 30)
+                                .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.5), value: cardAppearance)
 
-                        // Dynamic insights section - MODIFIED: Automatically shown
-                        enhancedDynamicInsightsSection
-                            .opacity(cardAppearance ? 1 : 0)
-                            .offset(y: cardAppearance ? 0 : 30)
-                            .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.6), value: cardAppearance)
+                            // Dynamic insights section - MODIFIED: Automatically shown
+                            enhancedDynamicInsightsSection
+                                .opacity(cardAppearance ? 1 : 0)
+                                .offset(y: cardAppearance ? 0 : 30)
+                                .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.6), value: cardAppearance)
 
-                        // Action buttons
-                        enhancedActionButtons
-                            .opacity(cardAppearance ? 1 : 0)
-                            .offset(y: cardAppearance ? 0 : 30)
-                            .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.7), value: cardAppearance)
+                            // Action buttons
+                            enhancedActionButtons
+                                .opacity(cardAppearance ? 1 : 0)
+                                .offset(y: cardAppearance ? 0 : 30)
+                                .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.7), value: cardAppearance)
+                        }
                     }
-                }
 
-                Spacer(minLength: 40)
+                    Spacer(minLength: safeBottom + 20)
+                }
+                .padding(.horizontal, 16)
+                .padding(.top, 10)
             }
-            .padding(.horizontal, 20)
-        }
-        .scrollIndicators(.hidden)
-        .refreshable {
-            await refreshData()
+            .scrollIndicators(.hidden)
+            .refreshable {
+                await refreshData()
+            }
         }
     }
 
     // MARK: - Enhanced UI Components
 
-    private var enhancedHeaderView: some View {
-        HStack(spacing: 16) {
-            Button {
-                withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                    toHome = true
-                }
-            } label: {
-                HStack(spacing: 10) {
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: 16, weight: .semibold))
-                    Text("Back")
-                        .font(.system(size: 16, weight: .medium))
-                }
-                .foregroundColor(.white)
-                .padding(.horizontal, 24)
-                .padding(.vertical, 12)
-                .background(
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    Color.blue.opacity(0.9),
-                                    Color.blue.opacity(0.7)
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 25)
-                                .stroke(
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [Color.white.opacity(0.4), Color.clear]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    ),
-                                    lineWidth: 1
-                                )
-                        )
-                        .shadow(color: Color.blue.opacity(0.4), radius: 15, x: 0, y: 5)
-                )
-            }
-            .buttonStyle(EnhancedButtonStyle())
-
-            Spacer()
-
-            VStack(alignment: .trailing, spacing: 6) {
-                HStack(spacing: 12) {
-                    ZStack {
-                        Circle()
-                            .fill(
-                                RadialGradient(
-                                    gradient: Gradient(colors: [
-                                        selectedMood.color.opacity(0.3),
-                                        selectedMood.color.opacity(0.1)
-                                    ]),
-                                    center: .center,
-                                    startRadius: 10,
-                                    endRadius: 30
-                                )
-                            )
-                            .frame(width: 44, height: 44)
-                            .scaleEffect(animateMood ? 1.15 : 1.0)
-                            .animation(.easeInOut(duration: 2).repeatForever(), value: animateMood)
-
-                        Image(systemName: "brain.head.profile")
-                            .font(.system(size: 26, weight: .medium))
-                            .foregroundColor(selectedMood.color)
-                            .scaleEffect(animateMood ? 1.1 : 1.0)
-                            .animation(.easeInOut(duration: 2).repeatForever(), value: animateMood)
+    private func enhancedHeaderView(geo: GeometryProxy) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            // Top Navigation Bar Row: Back Button on leading, Live Mood Badge on trailing
+            HStack {
+                Button {
+                    withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                        toHome = true
                     }
+                } label: {
+                    HStack(spacing: 6) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 15, weight: .semibold))
+                        Text("Back")
+                            .font(.system(size: 14, weight: .medium))
+                    }
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 8)
+                    .background(
+                        RoundedRectangle(cornerRadius: 18)
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [
+                                        Color.blue.opacity(0.9),
+                                        Color.blue.opacity(0.7)
+                                    ]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 18)
+                                    .stroke(Color.white.opacity(0.35), lineWidth: 1)
+                            )
+                            .shadow(color: Color.blue.opacity(0.35), radius: 6, x: 0, y: 3)
+                    )
+                }
+                .buttonStyle(EnhancedButtonStyle())
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Mood & Wellness")
-                            .font(.system(size: 26, weight: .bold, design: .rounded))
-                            .foregroundColor(.primary)
+                Spacer()
 
-                        Text("Track your mental health")
-                            .font(.system(size: 13, weight: .medium))
+                // Trailing: Current Selected Mood Badge (Live Emoji + State)
+                HStack(spacing: 5) {
+                    Text(verbatim: selectedMood.emoji)
+                        .font(.system(size: 16))
+                    Text(selectedMood.rawValue)
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(selectedMood.color)
+                        .lineLimit(1)
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+                .background(
+                    Capsule()
+                        .fill(selectedMood.color.opacity(0.12))
+                        .overlay(
+                            Capsule()
+                                .stroke(selectedMood.color.opacity(0.35), lineWidth: 1)
+                        )
+                )
+                .shadow(color: selectedMood.color.opacity(0.15), radius: 4, x: 0, y: 2)
+            }
+
+            // Title Row: Fully visible title with dynamic mood emoji and update timestamp
+            HStack(alignment: .center, spacing: 10) {
+                Text(verbatim: selectedMood.emoji)
+                    .font(.system(size: 26))
+                    .scaleEffect(animateMood ? 1.15 : 1.0)
+                    .animation(.easeInOut(duration: 2).repeatForever(), value: animateMood)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Mood & Wellness")
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .foregroundColor(.primary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.85)
+
+                    if !lastUpdated.isEmpty {
+                        HStack(spacing: 4) {
+                            Image(systemName: "clock.fill")
+                                .font(.system(size: 10))
+                                .foregroundColor(.secondary)
+                            Text("Updated \(lastUpdated)")
+                                .font(.system(size: 11, weight: .medium))
+                                .foregroundColor(.secondary)
+                        }
+                    } else {
+                        Text("Track your mental health & wellness")
+                            .font(.system(size: 11, weight: .medium))
                             .foregroundColor(.secondary)
                     }
                 }
 
-                if !lastUpdated.isEmpty {
-                    HStack(spacing: 6) {
-                        Image(systemName: "clock.fill")
-                            .font(.system(size: 11))
-                            .foregroundColor(.blue.opacity(0.5))
-                        Text("Updated \(lastUpdated)")
-                            .font(.system(size: 11, weight: .medium))
-                            .foregroundColor(.red.opacity(0.7))
-                    }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 4)
-                    .background(
-                        Capsule()
-                            .fill(Color(.systemGray5).opacity(0.8))
-                            .overlay(
-                                Capsule()
-                                    .stroke(Color(.systemGray4), lineWidth: 0.5)
-                            )
-                    )
-                }
+                Spacer()
             }
         }
-        .padding(.horizontal, 4)
-        .padding(.top, 10)
     }
 
     private var enhancedLoadingView: some View {
@@ -707,19 +723,19 @@ struct BloodSugarView: View {
     }
 
     private var enhancedMoodCard: some View {
-        VStack(spacing: 28) {
-            HStack(spacing: 16) {
+        VStack(spacing: 24) {
+            HStack(spacing: 14) {
                 ZStack {
                     Circle()
                         .fill(
                             RadialGradient(
                                 gradient: Gradient(colors: [
                                     selectedMood.color.opacity(0.3),
-                                    selectedMood.color.opacity(0.1)
+                                    selectedMood.color.opacity(0.08)
                                 ]),
                                 center: .center,
-                                startRadius: 15,
-                                endRadius: 30
+                                startRadius: 12,
+                                endRadius: 28
                             )
                         )
                         .frame(width: 48, height: 48)
@@ -728,29 +744,39 @@ struct BloodSugarView: View {
                                 .stroke(selectedMood.color.opacity(0.4), lineWidth: 2)
                         )
 
-                    Image(systemName: "face.smiling.inverse")
-                        .font(.system(size: 26, weight: .medium))
-                        .foregroundColor(selectedMood.color)
+                    Text(verbatim: selectedMood.emoji)
+                        .font(.system(size: 26))
+                        .scaleEffect(animateMood ? 1.1 : 1.0)
+                        .animation(.easeInOut(duration: 2).repeatForever(), value: animateMood)
                 }
 
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: 3) {
                     Text("How are you feeling?")
-                        .font(.system(size: 22, weight: .bold))
+                        .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.primary)
 
-                    Text("Select your current emotional state")
-                        .font(.system(size: 14, weight: .medium))
-                        .foregroundColor(.secondary)
+                    HStack(spacing: 4) {
+                        Text("Current mood:")
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundColor(.secondary)
+                        HStack(spacing: 4) {
+                            Text(verbatim: selectedMood.emoji)
+                                .font(.system(size: 14))
+                            Text(selectedMood.rawValue)
+                                .font(.system(size: 13, weight: .bold))
+                                .foregroundColor(selectedMood.color)
+                        }
+                    }
                 }
 
                 Spacer()
             }
 
-            // ENHANCED: Mood selection grid with better spacing and animations
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 4), spacing: 20) {
+            // ENHANCED: Mood selection grid with properly sized buttons so emojis are never covered
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 4), spacing: 18) {
                 ForEach(MoodType.allCases, id: \.self) { mood in
                     Button {
-                        withAnimation(.spring(response: 0.5, dampingFraction: 0.6)) {
+                        withAnimation(.spring(response: 0.45, dampingFraction: 0.65)) {
                             selectedMood = mood
                         }
 
@@ -758,72 +784,70 @@ struct BloodSugarView: View {
                         let impactFeedback = UIImpactFeedbackGenerator(style: .light)
                         impactFeedback.impactOccurred()
                     } label: {
-                        VStack(spacing: 10) {
+                        VStack(spacing: 8) {
                             ZStack {
+                                // Background Selection Indicator (drawn BEHIND emoji)
+                                if selectedMood == mood {
+                                    Circle()
+                                        .fill(mood.color.opacity(0.25))
+                                        .frame(width: 66, height: 66)
+                                        .scaleEffect(pulseAnimation ? 1.06 : 1.0)
+                                        .opacity(pulseAnimation ? 0.6 : 0.9)
+                                        .animation(.easeInOut(duration: 1.5).repeatForever(), value: pulseAnimation)
+                                }
+
                                 Circle()
                                     .fill(
                                         LinearGradient(
                                             gradient: Gradient(colors: [
-                                                mood.color.opacity(selectedMood == mood ? 0.4 : 0.1),
-                                                mood.color.opacity(selectedMood == mood ? 0.2 : 0.05)
+                                                mood.color.opacity(selectedMood == mood ? 0.35 : 0.12),
+                                                mood.color.opacity(selectedMood == mood ? 0.18 : 0.04)
                                             ]),
                                             startPoint: .topLeading,
                                             endPoint: .bottomTrailing
                                         )
                                     )
-                                    .frame(width: 68, height: 68)
+                                    .frame(width: 58, height: 58)
                                     .overlay(
                                         Circle()
                                             .stroke(
-                                                LinearGradient(
-                                                    gradient: Gradient(colors: [
-                                                        mood.color.opacity(selectedMood == mood ? 0.8 : 0.3),
-                                                        mood.color.opacity(selectedMood == mood ? 0.4 : 0.1)
-                                                    ]),
-                                                    startPoint: .topLeading,
-                                                    endPoint: .bottomTrailing
-                                                ),
-                                                lineWidth: selectedMood == mood ? 3 : 1.5
+                                                mood.color.opacity(selectedMood == mood ? 0.9 : 0.25),
+                                                lineWidth: selectedMood == mood ? 2.5 : 1
                                             )
                                     )
                                     .shadow(
-                                        color: mood.color.opacity(selectedMood == mood ? 0.4 : 0.1),
-                                        radius: selectedMood == mood ? 12 : 6,
+                                        color: mood.color.opacity(selectedMood == mood ? 0.4 : 0.08),
+                                        radius: selectedMood == mood ? 8 : 4,
                                         x: 0,
-                                        y: selectedMood == mood ? 6 : 3
+                                        y: selectedMood == mood ? 4 : 2
                                     )
 
-                                Text(mood.emoji)
-                                    .font(.system(size: 32))
-                                    .scaleEffect(selectedMood == mood ? 1.2 : 1.0)
+                                // The Emoji Text - always crisp, in the front layer
+                                Text(verbatim: mood.emoji)
+                                    .font(.system(size: 30))
+                                    .scaleEffect(selectedMood == mood ? 1.15 : 1.0)
                                     .animation(.spring(response: 0.4), value: selectedMood)
-
-                                // ENHANCED: Selection indicator
-                                if selectedMood == mood {
-                                    Circle()
-                                        .fill(mood.color.opacity(0.2))
-                                        .frame(width: 78, height: 78)
-                                        .scaleEffect(pulseAnimation ? 1.1 : 1.0)
-                                        .opacity(pulseAnimation ? 0.3 : 0.6)
-                                        .animation(.easeInOut(duration: 1.5).repeatForever(), value: pulseAnimation)
-                                }
                             }
+                            .frame(width: 66, height: 66)
 
                             Text(mood.rawValue)
                                 .font(.system(
-                                    size: selectedMood == mood ? 13 : 12,
+                                    size: selectedMood == mood ? 12 : 11,
                                     weight: selectedMood == mood ? .bold : .medium
                                 ))
                                 .foregroundColor(selectedMood == mood ? mood.color : .secondary)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.75)
                                 .animation(.easeInOut(duration: 0.2), value: selectedMood)
                         }
+                        .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(EnhancedButtonStyle())
                 }
             }
         }
-        .padding(.vertical, 36)
-        .padding(.horizontal, 28)
+        .padding(.vertical, 28)
+        .padding(.horizontal, 20)
         .frame(maxWidth: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 32)
@@ -912,7 +936,7 @@ struct BloodSugarView: View {
                         impactFeedback.impactOccurred()
                     } label: {
                         HStack(spacing: 16) {
-                            // Icon section
+                            // Icon section with Emoji and SF Symbol
                             ZStack {
                                 RoundedRectangle(cornerRadius: 14)
                                     .fill(
@@ -940,10 +964,9 @@ struct BloodSugarView: View {
                                         y: selectedSymptoms.contains(symptom) ? 4 : 2
                                     )
 
-                                Image(systemName: symptom.icon)
-                                    .font(.system(size: 22, weight: .semibold))
-                                    .foregroundColor(symptom.color)
-                                    .scaleEffect(selectedSymptoms.contains(symptom) ? 1.1 : 1.0)
+                                Text(verbatim: symptom.emoji)
+                                    .font(.system(size: 26))
+                                    .scaleEffect(selectedSymptoms.contains(symptom) ? 1.12 : 1.0)
                                     .animation(.spring(response: 0.3), value: selectedSymptoms)
                             }
 
@@ -1060,98 +1083,125 @@ struct BloodSugarView: View {
     }
 
     private var enhancedHeartRateCard: some View {
-        HStack(spacing: 24) {
-            ZStack {
-                // ENHANCED: Multi-layer heart animation
-                Circle()
-                    .fill(
-                        RadialGradient(
-                            gradient: Gradient(colors: [
-                                Color.red.opacity(0.3),
-                                Color.red.opacity(0.05)
-                            ]),
-                            center: .center,
-                            startRadius: 20,
-                            endRadius: 50
-                        )
-                    )
-                    .frame(width: 80, height: 80)
-                    .scaleEffect(animateHeartbeat ? 1.15 : 1.0)
-                    .opacity(animateHeartbeat ? 0.8 : 0.6)
-                    .animation(.easeInOut(duration: 0.8).repeatForever(), value: animateHeartbeat)
+        VStack(spacing: 18) {
+            // Header Row: Heart Icon Badge + Title + Status Pill
+            HStack(alignment: .center) {
+                HStack(spacing: 12) {
+                    ZStack {
+                        Circle()
+                            .fill(
+                                RadialGradient(
+                                    gradient: Gradient(colors: [
+                                        Color.red.opacity(0.3),
+                                        Color.red.opacity(0.08)
+                                    ]),
+                                    center: .center,
+                                    startRadius: 10,
+                                    endRadius: 26
+                                )
+                            )
+                            .frame(width: 46, height: 46)
+                            .overlay(
+                                Circle()
+                                    .stroke(Color.red.opacity(0.35), lineWidth: 1.5)
+                            )
 
-                Circle()
-                    .fill(
-                        RadialGradient(
-                            gradient: Gradient(colors: [
-                                Color.red.opacity(0.2),
-                                Color.clear
-                            ]),
-                            center: .center,
-                            startRadius: 10,
-                            endRadius: 35
-                        )
-                    )
-                    .frame(width: 60, height: 60)
-                    .scaleEffect(animateHeartbeat ? 1.3 : 1.0)
-                    .opacity(animateHeartbeat ? 0.4 : 0.8)
-                    .animation(.easeInOut(duration: 0.6).repeatForever().delay(0.1), value: animateHeartbeat)
+                        Image(systemName: "heart.fill")
+                            .font(.system(size: 22, weight: .semibold))
+                            .foregroundColor(.red)
+                            .scaleEffect(animateHeartbeat ? 1.15 : 1.0)
+                            .animation(.easeInOut(duration: 0.8).repeatForever(), value: animateHeartbeat)
+                    }
 
-                Image(systemName: "heart.fill")
-                    .font(.system(size: 32, weight: .medium))
-                    .foregroundColor(.red)
-                    .scaleEffect(animateHeartbeat ? 1.2 : 1.0)
-                    .animation(.easeInOut(duration: 0.8).repeatForever(), value: animateHeartbeat)
-            }
+                    VStack(alignment: .leading, spacing: 3) {
+                        HStack(spacing: 6) {
+                            Text("Heart Rate")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(.primary)
 
-            VStack(alignment: .leading, spacing: 10) {
-                HStack(spacing: 6) {
-                    Text("Heart Rate")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.secondary)
+                            Image(systemName: "waveform.path.ecg")
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.red)
+                        }
 
-                    Image(systemName: "waveform.path.ecg")
-                        .font(.system(size: 14))
-                        .foregroundColor(.red.opacity(0.7))
+                        Text("Correlated with mood data")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(.secondary)
+                    }
                 }
 
+                Spacer()
+
+                // Heart Rate Category + Trend Pill
+                HStack(spacing: 6) {
+                    Circle()
+                        .fill(heartRateColor)
+                        .frame(width: 8, height: 8)
+                        .scaleEffect(pulseAnimation ? 1.4 : 1.0)
+                        .opacity(pulseAnimation ? 0.6 : 1.0)
+                        .animation(.easeInOut(duration: 1).repeatForever(), value: pulseAnimation)
+
+                    Text(heartRateCategory)
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(heartRateColor)
+
+                    Image(systemName: heartRateTrendIcon)
+                        .font(.system(size: 11, weight: .bold))
+                        .foregroundColor(heartRateColor)
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 7)
+                .background(
+                    Capsule()
+                        .fill(heartRateColor.opacity(0.12))
+                        .overlay(
+                            Capsule()
+                                .stroke(heartRateColor.opacity(0.35), lineWidth: 1)
+                        )
+                )
+            }
+
+            // Divider
+            Divider()
+                .opacity(0.5)
+
+            // BPM Reading Row: Large BPM value & live sync status
+            HStack(alignment: .lastTextBaseline) {
                 HStack(alignment: .lastTextBaseline, spacing: 6) {
-                    Text("\(currentBPM)")
+                    Text(currentBPM > 0 ? "\(currentBPM)" : "--")
                         .font(.system(size: 38, weight: .bold, design: .rounded))
                         .foregroundColor(.primary)
                         .contentTransition(.numericText())
 
                     Text("BPM")
-                        .font(.system(size: 14, weight: .medium))
+                        .font(.system(size: 15, weight: .semibold))
                         .foregroundColor(.secondary)
                 }
 
-                Text("Correlated with mood data")
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.green.opacity(0.5))
-            }
+                Spacer()
 
-            Spacer()
+                HStack(spacing: 6) {
+                    Image(systemName: currentBPM > 0 ? "checkmark.circle.fill" : "waveform")
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(currentBPM > 0 ? .green : .secondary)
 
-            // ENHANCED: Heart rate status with better visual design
-            VStack(spacing: 12) {
-                enhancedHeartRateStatus
-
-                VStack(spacing: 4) {
-                    Image(systemName: heartRateTrendIcon)
-                        .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(heartRateColor)
-
-                    Text("Trend")
-                        .font(.system(size: 10, weight: .medium))
-                        .foregroundColor(.secondary)
+                    Text(currentBPM > 0 ? "Synced" : "No HR Data")
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundColor(currentBPM > 0 ? .green : .secondary)
                 }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+                .background(
+                    Capsule()
+                        .fill((currentBPM > 0 ? Color.green : Color.secondary).opacity(0.1))
+                )
             }
         }
-        .padding(.vertical, 28)
-        .padding(.horizontal, 28)
+        .padding(.vertical, 22)
+        .padding(.horizontal, 20)
+        .frame(maxWidth: .infinity)
         .background(
-            RoundedRectangle(cornerRadius: 28)
+            RoundedRectangle(cornerRadius: 24)
                 .fill(
                     LinearGradient(
                         gradient: Gradient(colors: [
@@ -1163,12 +1213,12 @@ struct BloodSugarView: View {
                     )
                 )
                 .overlay(
-                    RoundedRectangle(cornerRadius: 28)
+                    RoundedRectangle(cornerRadius: 24)
                         .stroke(
                             LinearGradient(
                                 gradient: Gradient(colors: [
                                     Color.red.opacity(0.3),
-                                    Color.red.opacity(0.1)
+                                    Color.red.opacity(0.08)
                                 ]),
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
@@ -1176,7 +1226,7 @@ struct BloodSugarView: View {
                             lineWidth: 1.5
                         )
                 )
-                .shadow(color: .red.opacity(0.15), radius: 20, x: 0, y: 8)
+                .shadow(color: Color.red.opacity(0.12), radius: 16, x: 0, y: 6)
         )
     }
 
@@ -1457,9 +1507,8 @@ struct BloodSugarView: View {
                                 .stroke(insight.color.opacity(0.4), lineWidth: 1.5)
                         )
 
-                    Image(systemName: insight.icon)
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(insight.color)
+                    Text(verbatim: insight.emoji)
+                        .font(.system(size: 22))
                 }
 
                 Spacer()
@@ -1817,6 +1866,7 @@ struct BloodSugarView: View {
 
 struct HealthInsight {
     let icon: String
+    let emoji: String
     let title: String
     let description: String
     let color: Color

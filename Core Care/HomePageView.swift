@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import HealthKit
 
 // MARK: - Enums & Models
 
@@ -63,82 +62,14 @@ struct MoodWellnessResponse: Codable {
     let message: String?
 }
 
-// MARK: - HealthKit Data Manager
+// MARK: - Health Data Manager (stub — HealthKit removed for free-tier compatibility)
 
 class HealthDataManager: ObservableObject {
-    private let healthStore = HKHealthStore()
     @Published var todayStepCount: Int = 0
     @Published var lastSleepHours: Double = 0
-    @Published var healthKitAvailable = true
 
-    init() {
-        if HKHealthStore.isHealthDataAvailable() {
-            requestAuthorization()
-        } else {
-            healthKitAvailable = false
-        }
-    }
-
-    func requestAuthorization() {
-        guard let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount),
-              let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
-            return
-        }
-
-        healthStore.requestAuthorization(toShare: [], read: [stepType, sleepType]) { success, error in
-            if success {
-                self.fetchTodaySteps()
-                self.fetchRecentSleep()
-            } else {
-                print("HealthKit authorization failed: \(error?.localizedDescription ?? "Unknown error")")
-            }
-        }
-    }
-
-    func fetchTodaySteps() {
-        guard let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount) else { return }
-        let calendar = Calendar.current
-        let startOfDay = calendar.startOfDay(for: Date())
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: Date(), options: .strictStartDate)
-
-        let query = HKStatisticsQuery(quantityType: stepType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, error in
-            guard let result = result, let sum = result.sumQuantity() else {
-                print("Failed to fetch step count: \(error?.localizedDescription ?? "Unknown error")")
-                return
-            }
-
-            DispatchQueue.main.async {
-                self.todayStepCount = Int(sum.doubleValue(for: HKUnit.count()))
-            }
-        }
-        healthStore.execute(query)
-    }
-
-    func fetchRecentSleep() {
-        guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else { return }
-        let calendar = Calendar.current
-        let startDate = calendar.date(byAdding: .day, value: -7, to: Date())!
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: [])
-
-        let query = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: 10, sortDescriptors: [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)]) { _, samples, error in
-            guard let samples = samples as? [HKCategorySample] else {
-                print("Failed to fetch sleep data: \(error?.localizedDescription ?? "Unknown error")")
-                return
-            }
-
-            // Filter for in-bed sleep analysis and calculate total sleep time for most recent night
-            let sleepSamples = samples.filter { $0.value == HKCategoryValueSleepAnalysis.inBed.rawValue }
-            var totalSleepTime: TimeInterval = 0
-            if let mostRecentSleep = sleepSamples.first {
-                totalSleepTime = mostRecentSleep.endDate.timeIntervalSince(mostRecentSleep.startDate)
-            }
-
-            DispatchQueue.main.async {
-                self.lastSleepHours = totalSleepTime / 3600 // Convert to hours
-            }
-        }
-        healthStore.execute(query)
-    }
+    func fetchTodaySteps() { /* HealthKit not available on free developer account */ }
+    func fetchRecentSleep() { /* HealthKit not available on free developer account */ }
 }
 
 // MARK: - Main View
@@ -146,8 +77,17 @@ class HealthDataManager: ObservableObject {
 struct HomePageView: View {
     let userId: Int
     @EnvironmentObject var userManager: UserManager
+    @State private var selectedTab: Int = 0
     @State private var selectedAvatar: String = ""
     @State private var currentPage: HomePageSection = .home
+
+    init(userId: Int = 1) {
+        self.userId = userId
+        let appearance = UITabBarAppearance()
+        appearance.configureWithDefaultBackground()
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+    }
     @State private var latestBPM: String = "--"
     @State private var bpmCategory: String = "Rate: --"
     @State private var weight: String = "--"
@@ -193,56 +133,49 @@ struct HomePageView: View {
         return "User"
     }
 
-    // Enhanced Color Palette
-    private let primaryColor = Color(red: 0.05, green: 0.07, blue: 0.12)
-    private let secondaryColor = Color(red: 0.98, green: 0.98, blue: 1.0)
-    private let accentColor = Color(red: 0.24, green: 0.55, blue: 1.0)
-    private let surfaceColor = Color.white
-    private let textPrimary = Color(red: 0.11, green: 0.13, blue: 0.19)
-    private let textSecondary = Color(red: 0.42, green: 0.47, blue: 0.57)
-
-    // Enhanced Gradients
-    private let heroGradient = LinearGradient(
-        gradient: Gradient(colors: [
-            Color(red: 0.24, green: 0.55, blue: 1.0),
-            Color(red: 0.32, green: 0.43, blue: 0.98),
-            Color(red: 0.45, green: 0.32, blue: 0.95)
-        ]),
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
-
-    private let aiGradient = LinearGradient(
-        gradient: Gradient(colors: [
-            Color(red: 0.15, green: 0.85, blue: 0.65),
-            Color(red: 0.08, green: 0.75, blue: 0.58)
-        ]),
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
+    // MARK: - Adaptive colour tokens (auto light/dark via ThemeColors.swift)
+    private let primaryColor    = Color.appBackground
+    private let secondaryColor  = Color.appBackground2
+    private let accentColor     = Color.appAccent
+    private let surfaceColor    = Color.cardBackground
+    private let textPrimary     = Color.textPrimary
+    private let textSecondary   = Color.textSecondary
+    private let heroGradient    = LinearGradient.appHero
+    private let aiGradient      = LinearGradient.appAI
 
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                // Enhanced Background
-                LinearGradient(
-                    gradient: Gradient(colors: [
-                        secondaryColor,
-                        Color(red: 0.96, green: 0.97, blue: 1.0)
-                    ]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .ignoresSafeArea()
-
-                contentView(geo: geo)
-
                 if currentPage == .home {
-                    bottomNavigation(geo: geo)
-                        .transition(.asymmetric(
-                            insertion: .scale(scale: 0.92, anchor: .center).combined(with: .opacity),
-                            removal: .scale(scale: 1.08, anchor: .center).combined(with: .opacity)
-                        ))
+                    TabView(selection: $selectedTab) {
+                        ZStack {
+                            Color.appBackground2
+                                .ignoresSafeArea()
+
+                            homeContentView(geo: geo)
+                        }
+                        .tabItem {
+                            Label("Home", systemImage: "house.fill")
+                        }
+                        .tag(0)
+
+                        HistoryView()
+                            .environmentObject(userManager)
+                            .tabItem {
+                                Label("History", systemImage: "clock.fill")
+                            }
+                            .tag(1)
+
+                        UserDetailsView(userId: currentUserId)
+                            .environmentObject(userManager)
+                            .tabItem {
+                                Label("Profile", systemImage: "person.fill")
+                            }
+                            .tag(2)
+                    }
+                    .tint(Color.appAccent)
+                } else {
+                    secondaryContentView(geo: geo)
                 }
 
                 if isLoading {
@@ -250,6 +183,9 @@ struct HomePageView: View {
                 }
             }
         }
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             validateUserSession()
             loadAllHealthMetrics()
@@ -262,7 +198,6 @@ struct HomePageView: View {
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("MoodEntryAdded"))) { _ in
-            // Refresh mood data when returning from mood entry screen
             loadLatestMoodEntry()
         }
         .alert("Error", isPresented: $showError) {
@@ -273,87 +208,60 @@ struct HomePageView: View {
     }
 
     @ViewBuilder
-    private func contentView(geo: GeometryProxy) -> some View {
+    private func secondaryContentView(geo: GeometryProxy) -> some View {
         switch currentPage {
-        case .home:
-            homeContentView(geo: geo)
-                .transition(
-    .asymmetric(
-        insertion: .move(edge: .trailing).combined(with: .opacity),
-        removal: .move(edge: .leading).combined(with: .opacity)
-    )
-)
-
-        case .userDetails:
-            UserDetailsView(userId: currentUserId)
-                .environmentObject(userManager)
-                .transition(
-    .asymmetric(
-        insertion: .move(edge: .trailing).combined(with: .opacity),
-        removal: .move(edge: .leading).combined(with: .opacity)
-    )
-)
+        case .home, .history, .userDetails:
+            EmptyView()
 
         case .hrCheck:
             HRCheckView()
                 .environmentObject(userManager)
                 .transition(
-    .asymmetric(
-        insertion: .move(edge: .trailing).combined(with: .opacity),
-        removal: .move(edge: .leading).combined(with: .opacity)
-    )
-)
+                    .asymmetric(
+                        insertion: .move(edge: .trailing).combined(with: .opacity),
+                        removal: .move(edge: .leading).combined(with: .opacity)
+                    )
+                )
 
         case .weight:
             WeightView()
                 .environmentObject(userManager)
                 .transition(
-    .asymmetric(
-        insertion: .move(edge: .trailing).combined(with: .opacity),
-        removal: .move(edge: .leading).combined(with: .opacity)
-    )
-)
+                    .asymmetric(
+                        insertion: .move(edge: .trailing).combined(with: .opacity),
+                        removal: .move(edge: .leading).combined(with: .opacity)
+                    )
+                )
 
         case .bp:
             BPView()
                 .environmentObject(userManager)
                 .transition(
-    .asymmetric(
-        insertion: .move(edge: .trailing).combined(with: .opacity),
-        removal: .move(edge: .leading).combined(with: .opacity)
-    )
-)
+                    .asymmetric(
+                        insertion: .move(edge: .trailing).combined(with: .opacity),
+                        removal: .move(edge: .leading).combined(with: .opacity)
+                    )
+                )
 
         case .ai:
             AIView()
                 .environmentObject(userManager)
                 .transition(
-    .asymmetric(
-        insertion: .move(edge: .trailing).combined(with: .opacity),
-        removal: .move(edge: .leading).combined(with: .opacity)
-    )
-)
-
-        case .history:
-            HistoryView()
-                .environmentObject(userManager)
-                .transition(
-    .asymmetric(
-        insertion: .move(edge: .trailing).combined(with: .opacity),
-        removal: .move(edge: .leading).combined(with: .opacity)
-    )
-)
+                    .asymmetric(
+                        insertion: .move(edge: .trailing).combined(with: .opacity),
+                        removal: .move(edge: .leading).combined(with: .opacity)
+                    )
+                )
 
         case .moodWellness:
-            BloodSugarView() // This is now the Mood & Wellness view
+            BloodSugarView()
                 .environmentObject(userManager)
                 .transition(
-    .asymmetric(
-        insertion: .move(edge: .trailing).combined(with: .opacity),
-        removal: .move(edge: .leading).combined(with: .opacity)
-    )
-)
-
+                    .asymmetric(
+                        insertion: .move(edge: .trailing).combined(with: .opacity),
+                        removal: .move(edge: .leading).combined(with: .opacity)
+                    )
+                )
         }
     }
 
@@ -391,7 +299,8 @@ struct HomePageView: View {
                             .id("ai")
                     }
                     .padding(.horizontal, 20)
-                    .padding(.bottom, geo.size.height * 0.2)
+                    .padding(.top, 14)
+                    .padding(.bottom, 24)
                 }
                 .background(
                     GeometryReader { geometry in
@@ -427,7 +336,7 @@ struct HomePageView: View {
             Spacer()
             Button {
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                    currentPage = .userDetails
+                    selectedTab = 2
                 }
             } label: {
                 ZStack {
@@ -454,8 +363,8 @@ struct HomePageView: View {
             .buttonStyle(BouncyButtonStyle())
         }
         .padding(.horizontal, 24)
-        .padding(.top, geo.safeAreaInsets.top > 0 ? geo.safeAreaInsets.top + 10 : 30)
-        .padding(.bottom, 20)
+        .padding(.top, max(geo.safeAreaInsets.top, 44) + 12)
+        .padding(.bottom, 14)
         .background(
             surfaceColor.opacity(0.95)
                 .blur(radius: scrollOffset < -50 ? 10 : 0)
@@ -500,7 +409,7 @@ struct HomePageView: View {
                 Spacer()
                 Button("View All") {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                        currentPage = .history
+                        selectedTab = 1
                     }
                 }
                 .font(.system(size: 14, weight: .semibold))
@@ -536,9 +445,7 @@ struct HomePageView: View {
                         .foregroundColor(accentColor)
                 }
                 .padding(20)
-                .background(surfaceColor)
-                .cornerRadius(16)
-                .shadow(color: Color.black.opacity(0.08), radius: 12, x: 0, y: 6)
+                .adaptiveCard()
             }
             .buttonStyle(CardButtonStyle())
         }
@@ -682,9 +589,9 @@ struct HomePageView: View {
             }
             .padding(18)
             .frame(maxWidth: .infinity, minHeight: 160, alignment: .topLeading)
-            .background(surfaceColor)
+            .background(Color.cardBackground)
             .cornerRadius(18)
-            .shadow(color: Color.black.opacity(0.08), radius: 12, x: 0, y: 6)
+            .shadow(color: Color.cardShadow, radius: 12, x: 0, y: 6)
         }
         .buttonStyle(CardButtonStyle())
     }
@@ -733,21 +640,17 @@ struct HomePageView: View {
                     Spacer()
 
                     VStack(spacing: 2) {
-                        Image(systemName: healthManager.healthKitAvailable
-                              ? "checkmark.circle.fill"
-                              : "exclamationmark.circle.fill")
+                        Image(systemName: "checkmark.circle.fill")
                             .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(healthManager.healthKitAvailable ? .green : .orange)
+                            .foregroundColor(.statusSuccess)
 
-                        Text(healthManager.healthKitAvailable ? "Synced" : "No Access")
+                        Text("Synced")
                             .font(.system(size: 10, weight: .medium))
-                            .foregroundColor(healthManager.healthKitAvailable ? .green : .orange)
+                            .foregroundColor(.statusSuccess)
                     }
                 }
                 .padding(20)
-                .background(surfaceColor)
-                .cornerRadius(16)
-                .shadow(color: Color.black.opacity(0.08), radius: 12, x: 0, y: 6)
+                .adaptiveCard()
             }
              // removes blue link highlight
         }
@@ -795,51 +698,13 @@ struct HomePageView: View {
                 .padding(20)
                 .background(aiGradient)
                 .cornerRadius(18)
-                .shadow(color: Color.green.opacity(0.3), radius: 15, x: 0, y: 8)
+                .shadow(color: Color.statusSuccess.opacity(0.3), radius: 15, x: 0, y: 8)
             }
             .buttonStyle(CardButtonStyle())
         }
     }
 
-    // MARK: - Enhanced Bottom Navigation
-    private func bottomNavigation(geo: GeometryProxy) -> some View {
-        VStack {
-            Spacer()
-            HStack(spacing: 0) {
-                ForEach([
-                    ("house.fill", "Home", HomePageSection.home),
-                    ("clock.fill", "History", HomePageSection.history),
-                    ("person.fill", "Profile", HomePageSection.userDetails)
-                ], id: \.1) { icon, label, page in
-                    Button {
-                        withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                            currentPage = page
-                        }
-                    } label: {
-                        EnhancedBottomNavItem(
-                            systemName: icon,
-                            label: label,
-                            isActive: currentPage == page
-                        )
-                    }
-                    .frame(maxWidth: .infinity)
-                }
-            }
-            .padding(.horizontal, 24)
-            .padding(.vertical, 16)
-            .background(
-                ZStack {
-                    RoundedRectangle(cornerRadius: 28, style: .continuous)
-                        .fill(surfaceColor)
-                        .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: -5)
-                    RoundedRectangle(cornerRadius: 28, style: .continuous)
-                        .stroke(Color.black.opacity(0.05), lineWidth: 1)
-                }
-            )
-            .padding(.horizontal, 20)
-            .padding(.bottom, geo.safeAreaInsets.bottom > 0 ? geo.safeAreaInsets.bottom + 10 : 30)
-        }
-    }
+
 
     // MARK: - Refresh Functions
     func refreshUserName() {
@@ -876,11 +741,6 @@ struct HomePageView: View {
         loadLatestBloodPressure()
         loadLatestWeight()
         loadLatestMoodEntry() // UPDATED: Load mood data from API
-
-        if healthManager.healthKitAvailable {
-            healthManager.fetchTodaySteps()
-            healthManager.fetchRecentSleep()
-        }
     }
 
     // MARK: - Load Latest Heart Rate
@@ -1201,33 +1061,25 @@ struct EnhancedBottomNavItem: View {
     var label: String
     var isActive: Bool
 
-    private let accentColor = Color(red: 0.24, green: 0.55, blue: 1.0)
-    private let textSecondary = Color(red: 0.42, green: 0.47, blue: 0.57)
+    private let activeColor = Color(red: 0.0, green: 0.48, blue: 1.0) // Apple System Blue
+    private let inactiveColor = Color(red: 0.55, green: 0.58, blue: 0.65) // Apple Secondary Label
 
     var body: some View {
-        VStack(spacing: 6) {
-            ZStack {
-                if isActive {
-                    Circle()
-                        .fill(accentColor.opacity(0.15))
-                        .frame(width: 32, height: 32)
-                        .scaleEffect(isActive ? 1.0 : 0.0)
-                        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isActive)
-                }
-
-                Image(systemName: systemName)
-                    .font(.system(size: isActive ? 20 : 18, weight: isActive ? .bold : .medium))
-                    .foregroundColor(isActive ? accentColor : textSecondary)
-                    .scaleEffect(isActive ? 1.1 : 1.0)
-                    .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isActive)
-            }
+        VStack(spacing: 3) {
+            Image(systemName: systemName)
+                .font(.system(size: 22, weight: isActive ? .bold : .medium))
+                .foregroundColor(isActive ? activeColor : inactiveColor)
+                .scaleEffect(isActive ? 1.06 : 1.0)
+                .animation(.spring(response: 0.25, dampingFraction: 0.7), value: isActive)
 
             Text(label)
-                .font(.system(size: 11, weight: isActive ? .semibold : .medium))
-                .foregroundColor(isActive ? accentColor : textSecondary)
-                .animation(.easeInOut(duration: 0.2), value: isActive)
+                .font(.system(size: 10, weight: isActive ? .semibold : .medium))
+                .foregroundColor(isActive ? activeColor : inactiveColor)
+                .animation(.easeInOut(duration: 0.15), value: isActive)
         }
-        .frame(height: 60)
+        .frame(maxWidth: .infinity)
+        .frame(height: 48)
+        .contentShape(Rectangle())
     }
 }
 
@@ -1287,12 +1139,12 @@ struct LoadingOverlay: View {
             VStack(spacing: 20) {
                 ZStack {
                     Circle()
-                        .stroke(Color.white.opacity(0.3), lineWidth: 4)
+                        .stroke(Color.appAccent.opacity(0.3), lineWidth: 4)
                         .frame(width: 50, height: 50)
 
                     Circle()
                         .trim(from: 0, to: 0.7)
-                        .stroke(Color.white, style: StrokeStyle(lineWidth: 4, lineCap: .round))
+                        .stroke(Color.appAccent, style: StrokeStyle(lineWidth: 4, lineCap: .round))
                         .frame(width: 50, height: 50)
                         .rotationEffect(.degrees(rotationAngle))
                         .animation(.linear(duration: 1).repeatForever(autoreverses: false), value: rotationAngle)
@@ -1300,13 +1152,17 @@ struct LoadingOverlay: View {
 
                 Text("Loading...")
                     .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.textPrimary)
             }
             .padding(30)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.black.opacity(0.8))
-                    .blur(radius: 20)
+                    .fill(Color.cardBackground)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.cardBorder, lineWidth: 1)
+                    )
+                    .shadow(color: Color.cardShadow, radius: 20, x: 0, y: 10)
             )
         }
         .onAppear {

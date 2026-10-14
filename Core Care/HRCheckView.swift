@@ -1499,6 +1499,9 @@ struct HRCheckView: View {
                 }
             )
         }
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
         .navigationBarBackButtonHidden(true)
     }
     
@@ -1513,15 +1516,7 @@ struct HRCheckView: View {
     // Enhanced: Beautiful animated gradient background with floating elements
     private var enhancedBackgroundGradient: some View {
         ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.95 + backgroundGradientOffset * 0.02, green: 0.97 + backgroundGradientOffset * 0.01, blue: 1.0),
-                    Color(red: 0.90 + backgroundGradientOffset * 0.03, green: 0.94 + backgroundGradientOffset * 0.02, blue: 0.98 - backgroundGradientOffset * 0.01),
-                    Color(red: 0.88 - backgroundGradientOffset * 0.02, green: 0.92 + backgroundGradientOffset * 0.01, blue: 0.97 + backgroundGradientOffset * 0.02)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            Color.appBackground2
             .animation(.easeInOut(duration: 8).repeatForever(autoreverses: true), value: backgroundGradientOffset)
             
             // Floating particles effect
@@ -1614,8 +1609,8 @@ struct HRCheckView: View {
                     .frame(width: 48, height: 48)
                     .background(
                         Circle()
-                            .fill(.white)
-                            .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                            .fill(Color.cardBackground)
+                            .shadow(color: Color.cardShadow, radius: 8, x: 0, y: 4)
                     )
             }
             
@@ -1720,8 +1715,8 @@ struct HRCheckView: View {
             }
         }
         .padding(.horizontal, 20)
-        .padding(.top, geo.safeAreaInsets.top + 10)
-        .padding(.bottom, 25)
+        .padding(.top, max(geo.safeAreaInsets.top, 44) + 8)
+        .padding(.bottom, 16)
     }
     
     // Enhanced: Beautiful heart rate display with rich graphics and animations
@@ -2219,8 +2214,8 @@ struct HRCheckView: View {
         .padding(24)
         .background(
             RoundedRectangle(cornerRadius: 24)
-                .fill(.white)
-                .shadow(color: .black.opacity(0.05), radius: 20, x: 0, y: 10)
+                .fill(Color.cardBackground)
+                .shadow(color: Color.cardShadow, radius: 20, x: 0, y: 10)
         )
         .padding(.horizontal, 20)
     }

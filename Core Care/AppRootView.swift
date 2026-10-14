@@ -14,11 +14,7 @@ struct AppRootView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [Color("coreblue"), Color.white],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            LinearGradient.appSplash
             .ignoresSafeArea()
             
             Group {
@@ -75,12 +71,15 @@ struct AppRootView: View {
                 heartRateReminderManager.checkAndScheduleReminder(userId: userManager.currentUserId ?? 0)
             }
         }
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
     }
     
     private var welcomeOverlay: some View {
         ZStack {
             LinearGradient(
-                colors: [Color("coreblue").opacity(0.8), Color.white.opacity(0.3)],
+                colors: [Color.appAccent.opacity(0.8), Color.appBackground.opacity(0.6)],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
@@ -439,9 +438,9 @@ struct LoadingScreen: View {
         ZStack {
             LinearGradient(
                 colors: [
-                    Color("coreblue").opacity(0.5),
-                    Color.white,
-                    Color("coreblue").opacity(0.25)
+                    Color.appAccent.opacity(0.4),
+                    Color.appBackground,
+                    Color.appAccent.opacity(0.2)
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -457,12 +456,12 @@ struct LoadingScreen: View {
                     .animation(.easeInOut(duration: 1.0).repeatForever(autoreverses: true), value: isAnimating)
                 
                 ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: Color("coreblue")))
+                    .progressViewStyle(CircularProgressViewStyle(tint: Color.appAccent))
                     .scaleEffect(1.2)
-                
+
                 Text("Loading...")
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.textSecondary)
             }
         }
         .onAppear {

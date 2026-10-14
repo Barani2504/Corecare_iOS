@@ -1,0 +1,296 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/AIView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "⚠️ Critical Stress Detected",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 136
+        }
+      },
+      {
+        "comment": "",
+        "key": "Would you like to start a breathing exercise to help reduce your stress?",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 152
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your stress level is at %lld%%",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 142
+        }
+      },
+      {
+        "comment": "",
+        "key": "Heart Rate: %lld BPM",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "Not Now",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 166
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start Breathing",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 183
+        }
+      },
+      {
+        "comment": "",
+        "key": "Core Care AI",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 359
+        }
+      },
+      {
+        "comment": "",
+        "key": "Demo Mode",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 381
+        }
+      },
+      {
+        "comment": "",
+        "key": "Live Analysis",
+        "location": {
+          "startingColumn": 60,
+          "startingLine": 381
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 410
+        }
+      },
+      {
+        "comment": "",
+        "key": "Score",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 414
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 456
+        }
+      },
+      {
+        "comment": "",
+        "key": "HEALTH SCORE",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 467
+        }
+      },
+      {
+        "comment": "",
+        "key": "Advanced Risk Analysis",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 515
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI Powered",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 522
+        }
+      },
+      {
+        "comment": "",
+        "key": "Live Vital Monitoring",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 574
+        }
+      },
+      {
+        "comment": "",
+        "key": "Real-time",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 588
+        }
+      },
+      {
+        "comment": "",
+        "key": "Core Assistant Analysis",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 652
+        }
+      },
+      {
+        "comment": "",
+        "key": "Confidence: 96%",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 658
+        }
+      },
+      {
+        "comment": "",
+        "key": "•",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 663
+        }
+      },
+      {
+        "comment": "",
+        "key": "Pattern: %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 666
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI-Detected Risk Factors",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 721
+        }
+      },
+      {
+        "comment": "",
+        "key": "High Priority",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 745
+        }
+      },
+      {
+        "comment": "",
+        "key": "Smart Recommendations",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 800
+        }
+      },
+      {
+        "comment": "",
+        "key": "Personalized",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 807
+        }
+      },
+      {
+        "comment": "",
+        "key": "Research shows deep breathing reduces stress hormones",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 841
+        }
+      },
+      {
+        "comment": "",
+        "key": "🧘‍♀️ Breathing Exercise Recommended",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 827
+        }
+      },
+      {
+        "comment": "",
+        "key": "Emergency Breathing",
+        "location": {
+          "startingColumn": 57,
+          "startingLine": 884
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start Advanced Breathing",
+        "location": {
+          "startingColumn": 81,
+          "startingLine": 884
+        }
+      },
+      {
+        "comment": "",
+        "key": "Critical stress intervention",
+        "location": {
+          "startingColumn": 57,
+          "startingLine": 888
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI-guided stress reduction protocol",
+        "location": {
+          "startingColumn": 90,
+          "startingLine": 888
+        }
+      },
+      {
+        "comment": "",
+        "key": "Return to Home Page",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 939
+        }
+      },
+      {
+        "comment": "",
+        "key": "Core Assistant Insights",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 978
+        }
+      },
+      {
+        "comment": "",
+        "key": "Advanced pattern recognition active",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 983
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1844
+        }
+      },
+      {
+        "comment": "",
+        "key": "Confidence: %lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 2009
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,104 @@
+{
+  "source": "/Users/sail/Desktop/Corecare_iOS/Core Care/LogoutView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Log out from Core Care",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 257
+        }
+      },
+      {
+        "comment": "",
+        "key": "Are you sure you want to\nlog out?",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 276
+        }
+      },
+      {
+        "comment": "",
+        "key": "Currently logged in as:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 290
+        }
+      },
+      {
+        "comment": "",
+        "key": "🩺",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 325
+        }
+      },
+      {
+        "comment": "",
+        "key": "Medical Data Security",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 330
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your medical data will remain secure and encrypted. You'll need to log in again to access your cardiac health information.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 334
+        }
+      },
+      {
+        "comment": "",
+        "key": "Logging out...",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 397
+        }
+      },
+      {
+        "comment": "",
+        "key": "Log Out Securely",
+        "location": {
+          "startingColumn": 60,
+          "startingLine": 397
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel & Stay Logged In",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 436
+        }
+      },
+      {
+        "comment": "",
+        "key": "Stay healthy, stay connected",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 496
+        }
+      },
+      {
+        "comment": "",
+        "key": "Logging Out Securely",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 597
+        }
+      },
+      {
+        "comment": "",
+        "key": "Securing your medical data and ending your session safely...",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 601
+        }
+      }
+    ]
+  },
+  "version": 1
+}
